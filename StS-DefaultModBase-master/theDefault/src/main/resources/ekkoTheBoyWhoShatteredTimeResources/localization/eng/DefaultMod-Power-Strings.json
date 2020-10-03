@@ -1,0 +1,70 @@
+{
+        "ekkoTheBoyWhoShatteredTime:Resonance": {
+                "NAME": "Resonance",
+                "DESCRIPTIONS": ["You applied #b", " #yResonance stack, at 3 draw two cards and deal damage equal to twice your strength.", " #yResonance stacks, at 3 draw two cards and deal damage equal to twice your strength."]
+        },
+        "ekkoTheBoyWhoShatteredTime:CooldownResonance": {
+                "NAME": "Resonance cooldown",
+                "DESCRIPTIONS": ["You can't apply #yResocance on this enemy this turn anymore."]
+        },
+        "ekkoTheBoyWhoShatteredTime:PhaseDivePower": {
+                "NAME": "Phase dive",
+                "DESCRIPTIONS": ["Your next #yStrike this turn deals ", " more damage."]
+        },
+        "ekkoTheBoyWhoShatteredTime:NashorsToothPower": {
+                "NAME": "Nashor's Tooth",
+                "DESCRIPTIONS": ["#yStrikes deals ", " more damage. When at 3 stacks, #yStrikes are free to play."]
+        },
+        "ekkoTheBoyWhoShatteredTime:LichBanePower": {
+                "NAME": "Lich bane",
+                "DESCRIPTIONS": ["After playing a skill or an attack (except #yStrike and Defend), next #yStrike will deal +"]
+        },
+        "ekkoTheBoyWhoShatteredTime:DelayedDamage": {
+                "NAME": "Delayed damage",
+                "DESCRIPTIONS": ["At the start of your turn, this character will take ", " damage."]
+        },
+        "ekkoTheBoyWhoShatteredTime:DelayedResonance": {
+                "NAME": "Delayed Resonance",
+                "DESCRIPTIONS": ["At the start of your turn, this character will take ", " stack(s) of #yResonance."]
+        },
+        "ekkoTheBoyWhoShatteredTime:NeedlesslyLargeRodPower": {
+                "NAME": "Needlessly large rod",
+                "DESCRIPTIONS": ["Awaits to be assembled"]
+        },
+        "ekkoTheBoyWhoShatteredTime:AfterimageSetupPower": {
+                "NAME": "Afterimage setup",
+                "DESCRIPTIONS": ["All the Block lost from now on that turn, will be brought back next turn."]
+        },
+        "ekkoTheBoyWhoShatteredTime:ParallelConvergencePower": {
+                "NAME": "Parallel convergence",
+                "DESCRIPTIONS": ["Next turn, if the enemy intends to attack, it gets Stunned."]
+        },
+        "ekkoTheBoyWhoShatteredTime:GuinsoosRagebladePower": {
+                "NAME": "Guinsoo's rageblade",
+                "DESCRIPTIONS": ["When you play a #yStrike, create a 0 cost Strike in your discard pile. Your #yStrikes apply 1 extra #yResonance."]
+        },
+        "ekkoTheBoyWhoShatteredTime:AcademyAttractionPower": {
+                "NAME": "Academy attraction",
+                "DESCRIPTIONS": ["Fully applying #yResonance gives you 1 #yStrength and #yDexterity."]
+        },
+        "ekkoTheBoyWhoShatteredTime:UpgradedAcademyAttractionPower": {
+                "NAME": "Upgraded academy attraction",
+                "DESCRIPTIONS": ["Fully applying #yResonance gives you 2 #yStrength and #yDexterity."]
+        },
+        "ekkoTheBoyWhoShatteredTime:SktSynergyPower": {
+                "NAME": "SKT synergy",
+                "DESCRIPTIONS": ["Your Strikes deal + 1 for each of your Strikes."]
+        },
+        "ekkoTheBoyWhoShatteredTime:ItemsAfterimagePower": {
+                "NAME": "Item's afterimage",
+                "DESCRIPTIONS": ["The next power you play this turn is played twice."]
+        },
+        "ekkoTheBoyWhoShatteredTime:ResochargePower": {
+                "NAME": "Resocharge",
+                "DESCRIPTIONS": ["The next attack with #yResonate you play this turn gets a boost of ", " #yStrength"]
+        },
+        "ekkoTheBoyWhoShatteredTime:PeriochargePower": {
+                "NAME": "Periocharge",
+                "DESCRIPTIONS": ["At the start of your turn, Autoplay Resocharge"]
+        }
+}

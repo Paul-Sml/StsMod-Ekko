@@ -1,0 +1,21 @@
+[
+  {
+    "NAMES": [
+      "resonance"
+    ],
+    "DESCRIPTION": "When at 3 stacks, draw 2 cards and deal damage equal to twice your strength, can be activated only once per turn per enemy."
+  },
+  {
+    "NAMES": [
+      "resonate"
+    ],
+    "DESCRIPTION": "Applies 1 #yResonance for each hit."
+  },
+  {
+    "NAMES": [
+      "strike",
+      "strikes"
+    ],
+    "DESCRIPTION": "Strike from base deck."
+  }
+]
