@@ -35,17 +35,10 @@ public class zDriveGreediness extends CustomRelic {
         }
     }
 
-    @Override
-    public void atBattleStart() {
-        ResonanceCheck = true;
-    }
-
-    @Override
-    public void atTurnStart() {
+    public void atEndOfTurn() {
         if (ResonanceCheck == false) {
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, 2, false), 2));
         }
-        ResonanceCheck = false;
     }
 
     /*@Override

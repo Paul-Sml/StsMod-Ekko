@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import javassist.CtBehavior;
 
+import static ekkoTheBoyWhoShatteredTime.EkkoMod.ResonanceCheck;
+
 @SpirePatch(
         clz = GameActionManager.class,
         method = "getNextAction"
@@ -18,6 +20,7 @@ public class TurnStartCheck {
     public static void Insert(GameActionManager __instance) {
         EkkoMod.hpAtTurnStart = AbstractDungeon.player.currentHealth;
         EkkoMod.gainedStrDexThisTurn = false;
+        ResonanceCheck = false;
     }
     private static class Locator extends SpireInsertLocator {
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {

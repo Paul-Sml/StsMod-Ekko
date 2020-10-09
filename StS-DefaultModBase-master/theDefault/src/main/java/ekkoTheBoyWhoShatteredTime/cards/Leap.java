@@ -26,7 +26,7 @@ public class Leap extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 8;
 
     public Leap() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

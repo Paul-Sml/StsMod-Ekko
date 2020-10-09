@@ -43,7 +43,7 @@ public class GrandeFinale extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int h = 3;
         if (this.upgraded)
-            h += 1;
+            h += 2;
         this.addToBot(new GrandeFinaleAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this.magicNumber, h));
     }
 

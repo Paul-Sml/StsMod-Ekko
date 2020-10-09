@@ -43,7 +43,7 @@ public class LichBane extends AbstractDynamicCard {
 
     public LichBane() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 6;
+        this.baseMagicNumber = 7;
         this.magicNumber = this.baseMagicNumber;
     }
 

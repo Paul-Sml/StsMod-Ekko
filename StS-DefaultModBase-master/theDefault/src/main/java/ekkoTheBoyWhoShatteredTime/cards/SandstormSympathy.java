@@ -27,6 +27,7 @@ public class SandstormSympathy extends AbstractDynamicCard {
 
     public SandstormSympathy() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
     }
 
     // Actions the card should do.

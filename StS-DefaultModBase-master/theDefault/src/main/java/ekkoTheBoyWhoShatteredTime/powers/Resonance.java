@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
+import ekkoTheBoyWhoShatteredTime.actions.KeepingMomentumAction;
 import ekkoTheBoyWhoShatteredTime.relics.zDriveGreediness;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
 
@@ -56,14 +57,15 @@ public class Resonance extends AbstractPower implements CloneablePowerInterface 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
         if (this.amount >= 3) {
+            ResonanceCheck = true;
             this.addToBot(new DrawCardAction(2));
             if (AbstractDungeon.player.hasRelic(zDriveGreediness.ID)){
                 this.addToBot(new GainEnergyAction(1));
-                ResonanceCheck = true;
             }
             if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID) && AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount>0) {
-                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount*2), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
+                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
             }
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 4));
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             this.addToTop(new ApplyPowerAction(this.owner, this.owner, new CooldownResonance(this.owner), -1));
             if (AbstractDungeon.player.hasPower(AcademyAttractionPower.POWER_ID)) {
@@ -73,6 +75,9 @@ public class Resonance extends AbstractPower implements CloneablePowerInterface 
             if (AbstractDungeon.player.hasPower(UpgradedAcademyAttractionPower.POWER_ID)) {
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 2), 2));
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 2), 2));
+            }
+            if (AbstractDungeon.player.hasPower(KeepingMomentumPower.POWER_ID)) {
+                this.addToBot(new KeepingMomentumAction(((KeepingMomentumPower) AbstractDungeon.player.getPower(KeepingMomentumPower.POWER_ID)).c));
             }
         }
 

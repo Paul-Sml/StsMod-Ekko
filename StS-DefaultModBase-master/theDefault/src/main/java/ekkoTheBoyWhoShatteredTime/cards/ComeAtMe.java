@@ -26,7 +26,7 @@ public class ComeAtMe extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 9;
     //private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public ComeAtMe() {

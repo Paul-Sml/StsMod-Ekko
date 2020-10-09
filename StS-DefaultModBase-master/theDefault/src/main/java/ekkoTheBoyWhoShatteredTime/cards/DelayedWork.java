@@ -35,6 +35,8 @@ public class DelayedWork extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage =DAMAGE;
         baseBlock = BLOCK;
+        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     // Actions the card should do.

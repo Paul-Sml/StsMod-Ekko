@@ -3,14 +3,14 @@
     "NAME": "Z-Drive Resonance",
     "FLAVOR": "Using his own invention, the Z-Drive, he explores the branching possibilities of reality to craft the perfect moment",
     "DESCRIPTIONS": [
-      "Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards and deal damage equal to twice your strength."
+      "Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards, deal damage equal to your strength and gain 4 Block."
     ]
   },
   "ekkoTheBoyWhoShatteredTime:zDriveGreediness": {
     "NAME": "Z-Drive Greediness",
     "FLAVOR": "Maybe you shouldn't be so confident on your capacities",
     "DESCRIPTIONS": [
-      "Replaces [#32E1E1]Z-Drive Resonance[]. Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards and deal damage equal to twice your strength. NL Activating resonance now gives [E] . NL Not activating resonance during one turn gives you 2 #yVulnerable."
+      "Replaces [#32E1E1]Z-Drive Resonance[]. Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards, deal damage equal to your strength and gain 4 Block. NL Activating resonance now gives [E] . NL Not activating resonance during one turn gives you 2 #yVulnerable."
     ]
   }
 }

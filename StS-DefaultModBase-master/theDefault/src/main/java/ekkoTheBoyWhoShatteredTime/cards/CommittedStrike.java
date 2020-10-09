@@ -3,21 +3,23 @@ package ekkoTheBoyWhoShatteredTime.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
+import ekkoTheBoyWhoShatteredTime.powers.CommittedStrikePower;
+import ekkoTheBoyWhoShatteredTime.powers.Resonance;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
-public class AfterimageTease extends AbstractDynamicCard {
+public class CommittedStrike extends AbstractDynamicCard {
 
-    public static final String ID = EkkoMod.makeID(AfterimageTease.class.getSimpleName());
-    public static final String IMG = makeCardPath("AfterimageTease.png");
+    public static final String ID = EkkoMod.makeID(CommittedStrike.class.getSimpleName());
+    public static final String IMG = makeCardPath("CommittedStrike.png");
 
     // STAT DECLARATION
 
@@ -28,28 +30,30 @@ public class AfterimageTease extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 5;
-    //private static final int UPGRADE_PLUS_DMG = 2;
+    private static final int DAMAGE = 9;
+    //private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
 
-    public AfterimageTease(){
+    public CommittedStrike(){
         super(ID,IMG,COST,TYPE,COLOR,RARITY,TARGET);
         baseDamage = DAMAGE;
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        this.tags.add(CardTags.STRIKE);
+        this.tags.add(EkkoMod.RESONATE);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        if (EkkoMod.lastTurnAttacked == true) {
-            this.addToBot(new GainEnergyAction(1));
-            this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
-        }
+        if (!this.upgraded)
+            this.addToBot(new ApplyPowerAction(m, p, new Resonance(m, p, 1), 1));
+
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+
+        AbstractCard cardVariable = this;
+        this.addToBot(new ApplyPowerAction(p, p, new CommittedStrikePower(p, p, 1, cardVariable), 1));
     }
 
 
@@ -58,8 +62,10 @@ public class AfterimageTease extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            //upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(1);
+            this.tags.remove(EkkoMod.RESONATE);
+            this.tags.add(CardTags.STARTER_STRIKE);
+            //  upgradeDamage(UPGRADE_PLUS_DMG);
+            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

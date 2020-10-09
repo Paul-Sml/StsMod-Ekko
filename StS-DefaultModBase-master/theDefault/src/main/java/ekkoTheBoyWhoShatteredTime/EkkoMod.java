@@ -88,7 +88,7 @@ public class EkkoMod implements
         EkkoMod.lastTurnAttacked = false;
         EkkoMod.gainedStrDexThisTurn = false;
         EkkoMod.hpAtTurnStart = AbstractDungeon.player.currentHealth;
-        EkkoMod.ResonanceCheck = true;
+        EkkoMod.ResonanceCheck = false;
     }
 
     // Mod-settings settings. This is if you want an on/off savable button
@@ -474,6 +474,10 @@ public class EkkoMod implements
         BaseMod.addCard(new AfterimageTease());
         BaseMod.addCard(new HailOfBlades());
         BaseMod.addCard(new PulsefirePooling());
+        BaseMod.addCard(new Backtrack());
+        BaseMod.addCard(new DuplicateTimelines());
+        BaseMod.addCard(new KeepingMomentum());
+        BaseMod.addCard(new CommittedStrike());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards

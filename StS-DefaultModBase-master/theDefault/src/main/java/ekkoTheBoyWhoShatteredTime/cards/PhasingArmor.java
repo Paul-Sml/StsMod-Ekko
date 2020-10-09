@@ -25,7 +25,7 @@ public class PhasingArmor extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;  //
     public static final CardColor COLOR = EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     //private static final int UPGRADED_COST = 1;
 
     public PhasingArmor() {
@@ -40,7 +40,7 @@ public class PhasingArmor extends AbstractDynamicCard {
         this.addToBot(new RemoveAllBlockAction(p, p));
         AbstractDungeon.actionManager.addToNextCombat(new GainBlockAction(p, p, block));
         if (this.upgraded) {
-            AbstractDungeon.actionManager.addToNextCombat(new ApplyPowerAction(p, p, new BlurPower(p, 1), 1));
+            AbstractDungeon.actionManager.addToNextCombat(new ApplyPowerAction(p, p, new BlurPower(p, 2), 2));
         }
     }
 

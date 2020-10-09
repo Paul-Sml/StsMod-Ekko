@@ -43,7 +43,7 @@ public class AfterimageSetup extends AbstractDynamicCard {
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
 
-    private static final int BLOCK = 3;
+    private static final int BLOCK = 4;
 
     public AfterimageSetup() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

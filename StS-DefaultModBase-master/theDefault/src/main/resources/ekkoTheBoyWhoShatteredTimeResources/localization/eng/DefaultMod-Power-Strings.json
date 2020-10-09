@@ -1,7 +1,7 @@
 {
         "ekkoTheBoyWhoShatteredTime:Resonance": {
                 "NAME": "Resonance",
-                "DESCRIPTIONS": ["You applied #b", " #yResonance stack, at 3 draw two cards and deal damage equal to twice your strength.", " #yResonance stacks, at 3 draw two cards and deal damage equal to twice your strength."]
+                "DESCRIPTIONS": ["You applied #b", " #yResonance stack, at 3 draw two cards, deal damage equal to your strength and gain 4 Block.", " #yResonance stacks, at 3 draw two cards, deal damage equal to your strength and gain 4 Block."]
         },
         "ekkoTheBoyWhoShatteredTime:CooldownResonance": {
                 "NAME": "Resonance cooldown",
@@ -61,10 +61,14 @@
         },
         "ekkoTheBoyWhoShatteredTime:ResochargePower": {
                 "NAME": "Resocharge",
-                "DESCRIPTIONS": ["The next attack with #yResonate you play this turn gets a boost of ", " #yStrength"]
+                "DESCRIPTIONS": ["The next attack with #yResonate you play this turn gets a boost of ", " #yStrength."]
         },
         "ekkoTheBoyWhoShatteredTime:PeriochargePower": {
                 "NAME": "Periocharge",
-                "DESCRIPTIONS": ["At the start of your turn, Autoplay Resocharge"]
+                "DESCRIPTIONS": ["At the start of your turn, Autoplay Resocharge."]
+        },
+        "ekkoTheBoyWhoShatteredTime:KeepingMomentumPower": {
+                "NAME": "Keeping momentum",
+                "DESCRIPTIONS": ["If you fully apply #yResonance put #yKeeping #ymomentum on top of your deck."]
         }
 }
