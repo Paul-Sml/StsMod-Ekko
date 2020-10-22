@@ -13,6 +13,12 @@
   },
   {
     "NAMES": [
+      "sheen"
+    ],
+    "DESCRIPTION": "#yStrikes deal additional damage equal to #ySheen amount when played directly after a non-Power card (except #yStrike and Defend)."
+  },
+  {
+    "NAMES": [
       "strike",
       "strikes"
     ],

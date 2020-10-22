@@ -72,6 +72,12 @@ public class Acceleration extends AbstractDynamicCard {
         this.initializeDescription();
     }
 
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = languagePack.getCardStrings(ID).DESCRIPTION;
+        this.initializeDescription();
+    }
+
     //Upgraded stats.
     @Override
     public void upgrade() {

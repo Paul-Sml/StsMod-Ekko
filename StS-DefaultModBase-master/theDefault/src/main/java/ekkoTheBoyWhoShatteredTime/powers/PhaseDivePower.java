@@ -64,13 +64,13 @@ public class PhaseDivePower extends AbstractPower implements CloneablePowerInter
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-            description = DESCRIPTIONS[0]+ amount*7 + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0]+ amount*6 + DESCRIPTIONS[1];
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (type == DamageInfo.DamageType.NORMAL && card.hasTag(AbstractCard.CardTags.STARTER_STRIKE)) {
-            return damage + (amount*7);
+            return damage + (amount*6);
         }
         return damage;
     }

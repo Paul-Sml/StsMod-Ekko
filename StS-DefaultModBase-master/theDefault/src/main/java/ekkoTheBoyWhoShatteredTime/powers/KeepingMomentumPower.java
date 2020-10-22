@@ -15,8 +15,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
+import ekkoTheBoyWhoShatteredTime.actions.KeepingMomentumAction;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
 
+import static ekkoTheBoyWhoShatteredTime.EkkoMod.ResonanceCheck;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
@@ -67,7 +69,9 @@ public class KeepingMomentumPower extends AbstractPower implements CloneablePowe
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atEndOfTurn(boolean isPlayer) {
+        if (ResonanceCheck == true)
+           this.addToBot(new KeepingMomentumAction(c));
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 

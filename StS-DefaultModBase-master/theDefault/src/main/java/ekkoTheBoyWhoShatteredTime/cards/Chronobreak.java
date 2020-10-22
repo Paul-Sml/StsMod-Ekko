@@ -19,6 +19,7 @@ import ekkoTheBoyWhoShatteredTime.powers.Resonance;
 
 import java.util.List;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class Chronobreak extends AbstractDynamicCard {
@@ -66,6 +67,13 @@ public class Chronobreak extends AbstractDynamicCard {
         if (EkkoMod.lastTurnAttacked == true) {
             this.addToBot(new ApplyPowerAction(m, p, new Resonance(m, p, 1), 1));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        }
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (EkkoMod.lastTurnAttacked == true) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
@@ -125,6 +133,11 @@ public class Chronobreak extends AbstractDynamicCard {
         }
     }
 
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = languagePack.getCardStrings(ID).DESCRIPTION;
+        this.initializeDescription();
+    }
 
     public List<TooltipInfo> getCustomTooltips() {
         return EkkoMod.resonanceTooltip;// 394

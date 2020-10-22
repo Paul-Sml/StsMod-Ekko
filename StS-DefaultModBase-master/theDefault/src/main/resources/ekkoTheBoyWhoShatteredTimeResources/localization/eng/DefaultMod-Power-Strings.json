@@ -15,9 +15,13 @@
                 "NAME": "Nashor's Tooth",
                 "DESCRIPTIONS": ["#yStrikes deals ", " more damage. When at 3 stacks, #yStrikes are free to play."]
         },
-        "ekkoTheBoyWhoShatteredTime:LichBanePower": {
-                "NAME": "Lich bane",
+        "ekkoTheBoyWhoShatteredTime:SheenPower": {
+                "NAME": "Sheen",
                 "DESCRIPTIONS": ["After playing a skill or an attack (except #yStrike and Defend), next #yStrike will deal +"]
+        },
+        "ekkoTheBoyWhoShatteredTime:TrinityForcePower": {
+                "NAME": "Trinity force",
+                "DESCRIPTIONS": ["At the start of your turn create "," #yStrike in your hand."," #yStrikes in your hand."]
         },
         "ekkoTheBoyWhoShatteredTime:DelayedDamage": {
                 "NAME": "Delayed damage",
@@ -66,6 +70,10 @@
         "ekkoTheBoyWhoShatteredTime:PeriochargePower": {
                 "NAME": "Periocharge",
                 "DESCRIPTIONS": ["At the start of your turn, Autoplay Resocharge."]
+        },
+        "ekkoTheBoyWhoShatteredTime:UpgradedPeriochargePower": {
+                "NAME": "Upgraded periocharge",
+                "DESCRIPTIONS": ["At the start of your turn, Autoplay Resocharge+."]
         },
         "ekkoTheBoyWhoShatteredTime:KeepingMomentumPower": {
                 "NAME": "Keeping momentum",

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 import ekkoTheBoyWhoShatteredTime.powers.CooldownResonance;
+import ekkoTheBoyWhoShatteredTime.powers.DelayedResonance;
 import ekkoTheBoyWhoShatteredTime.powers.Resonance;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -28,7 +29,7 @@ public class Disturblast extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 12;
+    private static final int DAMAGE = 13;
 
     // /STAT DECLARATION/
 
@@ -43,6 +44,7 @@ public class Disturblast extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new RemoveSpecificPowerAction(m, p, Resonance.POWER_ID));
+        this.addToBot(new RemoveSpecificPowerAction(m, p, DelayedResonance.POWER_ID));
         if (this.upgraded)
             this.addToBot(new RemoveSpecificPowerAction(m, p, CooldownResonance.POWER_ID));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));

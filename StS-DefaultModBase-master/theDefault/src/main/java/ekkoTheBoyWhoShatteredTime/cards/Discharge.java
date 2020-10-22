@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class Discharge extends AbstractDynamicCard {
@@ -41,27 +42,49 @@ public class Discharge extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int x = 0;
+        /*int x = 0;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             x += c.costForTurn;
         }
         x -= this.costForTurn;
-        for (int i = 0; i < x; i++)
-            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
+        //for (int i = 0; i < x; i++)*/
+        this.addToBot(new DamageAction(m, new DamageInfo(p, (damage), damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
     }
 
     @Override
     public void applyPowers() {
+        baseDamage = DAMAGE;
         int x = 0;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            x += c.costForTurn;
+        if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
+            for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+                x += c.costForTurn;
+            }
         }
+        baseDamage *= x;
         super.applyPowers();
-        this.rawDescription = "Deal !D! for each [E] ([#00FFFF]"+x+"[]) spent that turn.";
+        this.rawDescription = "Deal 4 for each [E] spent that turn. NL ([#00FFFF] !D! [#00FFFF]total [#00FFFF]damage[]).";
         this.initializeDescription();
     }
 
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        baseDamage = DAMAGE;
+        int x = 0;
+        if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
+            for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+                x += c.costForTurn;
+            }
+        }
+        x -= this.costForTurn;
+        baseDamage *= x;
+        super.calculateCardDamage(mo);
+    }
 
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = languagePack.getCardStrings(ID).DESCRIPTION;
+        this.initializeDescription();
+    }
 
     // Upgraded stats.
     @Override

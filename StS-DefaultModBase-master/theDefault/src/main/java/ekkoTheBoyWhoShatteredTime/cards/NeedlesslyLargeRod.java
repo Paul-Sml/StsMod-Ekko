@@ -1,8 +1,10 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -46,6 +48,7 @@ public class NeedlesslyLargeRod extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(EkkoMod.ITEM);
     }
 
 
@@ -54,6 +57,13 @@ public class NeedlesslyLargeRod extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new NeedlesslyLargeRodPower(p, p, 1), 1));
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (AbstractDungeon.player.hasPower(NeedlesslyLargeRodPower.POWER_ID)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     //Upgraded stats.

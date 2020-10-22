@@ -1,5 +1,6 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -29,12 +30,16 @@ public class HauntingGuise extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         this.isInnate = false;
+        this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(m, p, new SlowPower(m, 0), 0));
+        this.addToBot(new AddTemporaryHPAction(p, p, magicNumber));
+        this.tags.add(EkkoMod.ITEM);
     }
 
     //Upgraded stats.

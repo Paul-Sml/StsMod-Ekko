@@ -43,6 +43,7 @@ public class GuinsoosRageblade extends AbstractDynamicCard {
 
     public GuinsoosRageblade() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(EkkoMod.ITEM);
     }
 
 

@@ -4,8 +4,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
@@ -48,6 +50,15 @@ public class Greed extends AbstractDynamicCard {
             this.addToBot(new GainEnergyAction(1));
         this.addToBot(new ApplyPowerAction(m, p, new Resonance (m, p, 1), 1));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster q : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (q.hasPower(Resonance.POWER_ID) && q.getPower(Resonance.POWER_ID).amount == 2) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            }
+        }
     }
 
     /*public List<TooltipInfo> getCustomTooltips() {

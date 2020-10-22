@@ -40,16 +40,19 @@ public class BansheesVeil extends AbstractDynamicCard {
     public static final CardColor COLOR = EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    //private static final int UPGRADED_COST = 0;
 
     public BansheesVeil() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber;
+        this.tags.add(EkkoMod.ITEM);
     }
     
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, 1), 1));
+        this.addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
     }
 
@@ -58,7 +61,8 @@ public class BansheesVeil extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.upgradeMagicNumber(1);
+            //upgradeBaseCost(UPGRADED_COST);
         }
     }
 }

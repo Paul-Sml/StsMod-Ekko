@@ -47,6 +47,7 @@ public class DefensiveStance extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, 1), 1));
+        this.addToBot(new DiscardPileToTopOfDeckAction(p));
         if (this.upgraded)
             this.addToBot(new DiscardPileToTopOfDeckAction(p));
     }

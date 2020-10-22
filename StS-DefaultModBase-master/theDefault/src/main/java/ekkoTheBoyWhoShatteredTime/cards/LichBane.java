@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
-import ekkoTheBoyWhoShatteredTime.powers.LichBanePower;
+import ekkoTheBoyWhoShatteredTime.powers.SheenPower;
 
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
@@ -45,13 +45,14 @@ public class LichBane extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 7;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(EkkoMod.ITEM);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new LichBanePower(p, p, magicNumber), magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new SheenPower(p, p, magicNumber), magicNumber));
     }
 
     //Upgraded stats.
@@ -60,6 +61,7 @@ public class LichBane extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(4);
+            initializeDescription();
         }
     }
 }

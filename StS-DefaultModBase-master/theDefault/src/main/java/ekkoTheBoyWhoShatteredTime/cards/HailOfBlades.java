@@ -1,12 +1,12 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class HailOfBlades extends AbstractDynamicCard {
@@ -26,7 +26,9 @@ public class HailOfBlades extends AbstractDynamicCard {
 
     public HailOfBlades() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isInnate = false;
+        this.isInnate = true;
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     // Actions the card should do.
@@ -35,7 +37,14 @@ public class HailOfBlades extends AbstractDynamicCard {
         if (EkkoMod.lastTurnAttacked == false) {
             Strike c = new Strike();
             c.setCostForTurn(0);
-            this.addToBot(new MakeTempCardInHandAction(c, 3));
+            this.addToBot(new MakeTempCardInHandAction(c, this.magicNumber));
+        }
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (EkkoMod.lastTurnAttacked == false) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
@@ -44,8 +53,9 @@ public class HailOfBlades extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
-            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+//            this.isInnate = true;
+            this.upgradeMagicNumber(1);
+//            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
             //upgradeBaseCost(UPGRADED_COST);
         }

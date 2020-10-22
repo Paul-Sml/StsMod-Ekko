@@ -478,6 +478,14 @@ public class EkkoMod implements
         BaseMod.addCard(new DuplicateTimelines());
         BaseMod.addCard(new KeepingMomentum());
         BaseMod.addCard(new CommittedStrike());
+        BaseMod.addCard(new HauntedAfterimage());
+        BaseMod.addCard(new SpHit());
+        BaseMod.addCard(new VelocityConsuming());
+        BaseMod.addCard(new Unchained());
+        BaseMod.addCard(new IcebornGauntlet());
+        BaseMod.addCard(new TrinityForce());
+        BaseMod.addCard(new TimeIndustry());
+        BaseMod.addCard(new QuickBreak());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -497,7 +505,8 @@ public class EkkoMod implements
 
     @SpireEnum
     public static AbstractCard.CardTags RESONATE;
-    
+    public static AbstractCard.CardTags ITEM;
+
     
     // ================ LOAD THE TEXT ===================
     
@@ -543,6 +552,17 @@ public class EkkoMod implements
     static { //static code block, is executed the first time the class is used
         resonanceTooltip = new ArrayList<TooltipInfo>(); //create new instance
         resonanceTooltip.add(new TooltipInfo("Resonance", "When at 3 stacks, draw 2 cards and deal damage equal to twice your strength, can be activated only once per turn per enemy.")); //Add a tooltip to the list
+    }
+    public static ArrayList<TooltipInfo> itemTooltip; //define static list of tooltip info
+    static { //static code block, is executed the first time the class is used
+        itemTooltip = new ArrayList<TooltipInfo>(); //create new instance
+        itemTooltip.add(new TooltipInfo("Items affected", "Banshee's veil NL Guinsoo's rageblade NL Haunting guise NL Hextech protobelt NL Iceborn gauntlet NL Lich bane NL Nashor's tooth NL Needlessly large rod NL Trinity force NL Zhonyas hourglass")); //Add a tooltip to the list
+    }
+    public static ArrayList<TooltipInfo> dupTooltip; //define static list of tooltip info
+    static { //static code block, is executed the first time the class is used
+        dupTooltip = new ArrayList<TooltipInfo>(); //create new instance
+        dupTooltip.add(new TooltipInfo("Powers affected", "Common effects : NL Energized NL Draw more cards on next turn NL Next turn block NL Next turn lose strength NL Next turn lose dexterity NL Next turn gain strength NL Delayed resonance NL Delayed damage" +
+                " NL NL Rare effects : NL Next turn death NL Gain an extra turn NL Phantasmal NL Nightmare NL Draw less cards on next turn")); //Add a tooltip to the list
     }
     
     // ================ LOAD THE KEYWORDS ===================

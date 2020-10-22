@@ -30,6 +30,8 @@ public class DodgeTraining extends AbstractDynamicCard {
 
     public DodgeTraining() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber;
         ExhaustiveVariable.setBaseValue(this, 2);
     }
 
@@ -42,7 +44,7 @@ public class DodgeTraining extends AbstractDynamicCard {
 
     @Override
     public void triggerOnExhaust() {
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 3), 3));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }
 
 

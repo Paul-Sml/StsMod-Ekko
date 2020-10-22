@@ -32,6 +32,7 @@ public class PulsefirePooling extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust = true;
     }
 
 

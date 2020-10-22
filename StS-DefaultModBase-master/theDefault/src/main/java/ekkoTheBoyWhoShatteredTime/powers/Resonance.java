@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
-import ekkoTheBoyWhoShatteredTime.actions.KeepingMomentumAction;
 import ekkoTheBoyWhoShatteredTime.relics.zDriveGreediness;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
 
@@ -76,9 +75,9 @@ public class Resonance extends AbstractPower implements CloneablePowerInterface 
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 2), 2));
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 2), 2));
             }
-            if (AbstractDungeon.player.hasPower(KeepingMomentumPower.POWER_ID)) {
+            /*if (AbstractDungeon.player.hasPower(KeepingMomentumPower.POWER_ID)) {
                 this.addToBot(new KeepingMomentumAction(((KeepingMomentumPower) AbstractDungeon.player.getPower(KeepingMomentumPower.POWER_ID)).c));
-            }
+            }*/
         }
 
     }

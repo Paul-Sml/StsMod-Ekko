@@ -30,6 +30,7 @@ public class ZhonyasHourglass extends AbstractDynamicCard {
     public ZhonyasHourglass() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.tags.add(EkkoMod.ITEM);
     }
 
 

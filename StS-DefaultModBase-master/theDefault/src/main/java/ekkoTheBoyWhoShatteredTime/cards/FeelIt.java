@@ -2,6 +2,7 @@ package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,7 +25,7 @@ public class FeelIt extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
@@ -44,6 +45,12 @@ public class FeelIt extends AbstractDynamicCard {
         }
     }
 
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (EkkoMod.gainedStrDexThisTurn == true) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
 
     // Upgraded stats.
     @Override
