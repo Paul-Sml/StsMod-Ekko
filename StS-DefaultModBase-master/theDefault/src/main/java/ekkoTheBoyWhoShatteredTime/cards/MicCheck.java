@@ -40,7 +40,7 @@ public class MicCheck extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainEnergyAction(1));
-        this.addToBot(new DrawCardAction(p, magicNumber));
+        this.addToBot(new DrawCardAction(p, 1));
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber), magicNumber));
         this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
@@ -53,7 +53,6 @@ public class MicCheck extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

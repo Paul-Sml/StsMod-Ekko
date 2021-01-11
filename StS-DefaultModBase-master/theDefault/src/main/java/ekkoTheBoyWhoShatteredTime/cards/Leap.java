@@ -27,6 +27,7 @@ public class Leap extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public Leap() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -78,6 +79,7 @@ public class Leap extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

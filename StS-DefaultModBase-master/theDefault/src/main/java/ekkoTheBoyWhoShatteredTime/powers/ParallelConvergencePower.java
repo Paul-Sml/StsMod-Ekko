@@ -3,14 +3,13 @@ package ekkoTheBoyWhoShatteredTime.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
+import ekkoTheBoyWhoShatteredTime.actions.ParallelConvergenceAction;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
 
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makePowerPath;
@@ -47,9 +46,8 @@ public class ParallelConvergencePower extends AbstractPower implements Cloneable
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (((AbstractMonster)this.owner).getIntentBaseDmg() >= 0) {
-            this.addToBot(new StunMonsterAction((AbstractMonster)this.owner, this.owner));
-        }
+        this.addToBot (new ParallelConvergenceAction(this.owner));
+
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 

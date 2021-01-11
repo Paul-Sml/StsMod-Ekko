@@ -12,6 +12,7 @@ import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 
 import java.util.function.Predicate;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class RecallingPunch extends AbstractDynamicCard {
@@ -60,6 +61,8 @@ public class RecallingPunch extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            initializeDescription();
 //upgradeBaseCost(UPGRADED_COST);
         }
     }

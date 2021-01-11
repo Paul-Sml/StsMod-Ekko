@@ -12,7 +12,6 @@ import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 import ekkoTheBoyWhoShatteredTime.powers.SheenPower;
 import ekkoTheBoyWhoShatteredTime.powers.TrinityForcePower;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class TrinityForce extends AbstractDynamicCard {
@@ -48,10 +47,16 @@ public class TrinityForce extends AbstractDynamicCard {
     public TrinityForce() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 3;
+        this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(EkkoMod.ITEM);
     }
 
+    public void applyPowers() {
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+    }
 
     // Actions the card should do.
     @Override
@@ -68,7 +73,8 @@ public class TrinityForce extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            upgradeDamage(2);
+//            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

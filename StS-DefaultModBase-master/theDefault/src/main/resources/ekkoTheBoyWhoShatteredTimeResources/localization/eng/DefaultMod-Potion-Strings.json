@@ -1,6 +1,14 @@
 {
-"ekkoTheBoyWhoShatteredTime:PlaceholderPotion": {
-        "NAME": "Placeholder Potion",
-        "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
-}
+        "ekkoTheBoyWhoShatteredTime:BottledSheen": {
+                "NAME": "Bottled sheen",
+                "DESCRIPTIONS": ["Gain ", " #ySheen."]
+        },
+        "ekkoTheBoyWhoShatteredTime:ResonatingPotion": {
+                "NAME": "Resonating potion",
+                "DESCRIPTIONS": ["Apply ", " #yResonance."]
+        },
+        "ekkoTheBoyWhoShatteredTime:EquilibriumPotion": {
+                "NAME": "Equilibrium potion",
+                "DESCRIPTIONS": ["Increase your #yStrength or #yDexterity so it reaches the highest one."]
+        }
 }

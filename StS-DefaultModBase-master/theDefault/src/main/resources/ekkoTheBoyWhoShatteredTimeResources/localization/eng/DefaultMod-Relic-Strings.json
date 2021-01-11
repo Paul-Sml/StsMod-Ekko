@@ -1,16 +1,51 @@
 {
   "ekkoTheBoyWhoShatteredTime:zDriveResonance": {
     "NAME": "Z-Drive Resonance",
-    "FLAVOR": "Using his own invention, the Z-Drive, he explores the branching possibilities of reality to craft the perfect moment",
+    "FLAVOR": "Using his own invention, the Z-Drive, Ekko explores the branching possibilities of reality to craft the perfect moment.",
     "DESCRIPTIONS": [
-      "Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards, deal damage equal to your strength and gain 4 Block."
+      "Basic strikes apply #b1 #yResonance. NL At #b3 stacks draw two cards, deal damage equal to your strength and gain #b4 Block."
     ]
   },
   "ekkoTheBoyWhoShatteredTime:zDriveGreediness": {
     "NAME": "Z-Drive Greediness",
-    "FLAVOR": "Maybe you shouldn't be so confident on your capacities",
+    "FLAVOR": "Maybe you shouldn't be so confident on your capacities. High risk high reward as they say.",
     "DESCRIPTIONS": [
-      "Replaces [#32E1E1]Z-Drive Resonance[]. Basic strikes apply 1 #yResonance. NL At 3 stacks draw two cards, deal damage equal to your strength and gain 4 Block. NL Activating resonance now gives [E] . NL Not activating resonance during one turn gives you 2 #yVulnerable."
+      "Replaces [#32E1E1]Z-Drive [#32E1E1]Resonance[]. Basic strikes apply #b1 #yResonance. NL At #b3 stacks draw two cards, deal damage equal to your strength and gain #b4 Block. NL Activating resonance now gives [E] . NL Not activating resonance during one turn gives you #b1 #yVulnerable."
+    ]
+  },
+  "ekkoTheBoyWhoShatteredTime:TwistedClockwork": {
+    "NAME": "Twisted clockwork",
+    "FLAVOR": "It might be illegal but at least it's helpful.",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yDelayed #ydamage or #yNext #yturn #yBlock, apply #b", " more."
+    ]
+  },
+  "ekkoTheBoyWhoShatteredTime:ChainArmlet": {
+    "NAME": "Chain armlet",
+    "FLAVOR": "A cool addition to your look.",
+    "DESCRIPTIONS": [
+      "Whenever you receive #yWeak gain #b1 #yStrengh. NL Whenever you receive #yFrail gain #b1 #yDexterity."
+    ]
+  },
+  "ekkoTheBoyWhoShatteredTime:PairOfMasks": {
+    "NAME": "Pair of masks",
+    "FLAVOR": "Makes you and your loved one match perfectly.",
+    "DESCRIPTIONS": [
+      "Whenever you play an #yitem, add a random colorless cards into your hand."
+    ]
+  },
+  "ekkoTheBoyWhoShatteredTime:BronzeTube": {
+    "NAME": "Bronze tube",
+    "FLAVOR": "Some weird science can happen in a that simple tube.",
+    "DESCRIPTIONS": [
+      "The first time you generate extra [E] each turn, draw one more card next turn."
+    ]
+  },
+  "ekkoTheBoyWhoShatteredTime:ResonanceReceiver": {
+    "NAME": "Resonance receiver",
+    "FLAVOR": "Some weird science can happen in a that simple tube.",
+    "DESCRIPTIONS": [
+      "Whenever you successfully apply a #yResonance stack, gain #b", " Block."
     ]
   }
 }

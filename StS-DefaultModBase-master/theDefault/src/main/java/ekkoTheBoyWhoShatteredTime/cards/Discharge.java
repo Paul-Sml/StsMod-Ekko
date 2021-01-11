@@ -2,10 +2,8 @@ package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
@@ -28,7 +26,7 @@ public class Discharge extends AbstractDynamicCard {
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
 
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 5;
 
     // /STAT DECLARATION/
 
@@ -47,37 +45,46 @@ public class Discharge extends AbstractDynamicCard {
             x += c.costForTurn;
         }
         x -= this.costForTurn;
-        //for (int i = 0; i < x; i++)*/
+        //for (int i = 0; i < x; i++)
+        damage -= DAMAGE*this.costForTurn;*/
+
+        baseDamage = DAMAGE;
+        baseDamage *= EkkoMod.usedEnergy;
+
+        super.applyPowers();
+        super.calculateCardDamage(m);
+
         this.addToBot(new DamageAction(m, new DamageInfo(p, (damage), damageTypeForTurn), AbstractGameAction.AttackEffect.LIGHTNING));
     }
 
     @Override
     public void applyPowers() {
         baseDamage = DAMAGE;
-        int x = 0;
+        /*int x = 0;
         if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
                 x += c.costForTurn;
             }
-        }
-        baseDamage *= x;
+        }*/
+        baseDamage *= EkkoMod.usedEnergy;
         super.applyPowers();
-        this.rawDescription = "Deal 4 for each [E] spent that turn. NL ([#00FFFF] !D! [#00FFFF]total [#00FFFF]damage[]).";
+        this.rawDescription = "Deal 5 damage for each [E] spent that turn. NL ([#00FFFF] !D! [#00FFFF]total [#00FFFF]damage[]).";
         this.initializeDescription();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         baseDamage = DAMAGE;
-        int x = 0;
+        /*int x = 0;
         if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
                 x += c.costForTurn;
             }
-        }
-        x -= this.costForTurn;
-        baseDamage *= x;
+        }*/
+        baseDamage *= EkkoMod.usedEnergy;
         super.calculateCardDamage(mo);
+        this.rawDescription = "Deal 5 damage for each [E] spent that turn. NL ([#00FFFF] !D! [#00FFFF]total [#00FFFF]damage[]).";
+        this.initializeDescription();
     }
 
     @Override

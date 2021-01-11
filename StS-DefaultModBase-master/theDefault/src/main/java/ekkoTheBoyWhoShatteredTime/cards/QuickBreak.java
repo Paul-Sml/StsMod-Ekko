@@ -1,6 +1,7 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,13 +21,13 @@ public class QuickBreak extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+//    private static final int UPGRADED_COST = 0;
 
     //private static final int BLOCK = 1;
 
@@ -79,13 +80,22 @@ public class QuickBreak extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         baseBlock = (countCards());
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        Strike c = new Strike();
+        if (this.upgraded) {
+            c.cost = 0;
+            c.costForTurn = 0;
+        }
+        this.addToBot(new MakeTempCardInHandAction(c, 1));
     }
 
     @Override
     public void applyPowers() {
         baseBlock = (countCards());
         super.applyPowers();
-        this.rawDescription = "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes (currently !B! block).";
+        if (!this.upgraded)
+            this.rawDescription = "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes ([#00FFFF]currently[#00FFFF] !B! [#00FFFF]block[]). NL Then add a ekkotheboywhoshatteredtime:Strike to your hand.";
+        if (this.upgraded)
+            this.rawDescription = "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes ([#00FFFF]currently[#00FFFF] !B! [#00FFFF]block[]). NL Then add a ekkotheboywhoshatteredtime:Strike that costs 0 to your hand.";
         this.initializeDescription();
     }
 
@@ -100,7 +110,9 @@ public class QuickBreak extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+//            upgradeBaseCost(UPGRADED_COST);
+            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

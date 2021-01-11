@@ -28,6 +28,7 @@ public class TimeMaster extends AbstractDynamicCard {
 
     public TimeMaster() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        selfRetain = true;
     }
 
     // Actions the card should do.

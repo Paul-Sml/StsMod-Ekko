@@ -22,10 +22,13 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import ekkoTheBoyWhoShatteredTime.cards.Process;
 import ekkoTheBoyWhoShatteredTime.cards.*;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
-import ekkoTheBoyWhoShatteredTime.relics.zDriveGreediness;
-import ekkoTheBoyWhoShatteredTime.relics.zDriveResonance;
+import ekkoTheBoyWhoShatteredTime.potions.BottledSheen;
+import ekkoTheBoyWhoShatteredTime.potions.EquilibriumPotion;
+import ekkoTheBoyWhoShatteredTime.potions.ResonatingPotion;
+import ekkoTheBoyWhoShatteredTime.relics.*;
 import ekkoTheBoyWhoShatteredTime.util.IDCheckDontTouchPls;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
 import ekkoTheBoyWhoShatteredTime.variables.DefaultCustomVariable;
@@ -84,11 +87,15 @@ public class EkkoMod implements
     public static boolean gainedStrDexThisTurn;
     private static String modID;
     public static boolean ResonanceCheck;
+    public static int checkEnergy = 0;
+    public static int usedEnergy = 0;
     public void receiveOnBattleStart (AbstractRoom room) {
         EkkoMod.lastTurnAttacked = false;
         EkkoMod.gainedStrDexThisTurn = false;
         EkkoMod.hpAtTurnStart = AbstractDungeon.player.currentHealth;
         EkkoMod.ResonanceCheck = false;
+        EkkoMod.checkEnergy = 0;
+        EkkoMod.usedEnergy = 0;
     }
 
     // Mod-settings settings. This is if you want an on/off savable button
@@ -99,19 +106,19 @@ public class EkkoMod implements
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "Ekko, the boy who shattered time";
     private static final String AUTHOR = "Diamsword"; // And pretty soon - You!
-    private static final String DESCRIPTION = "An mod inspired by ekko from LOL";
+    private static final String DESCRIPTION = "A mod inspired by ekko from LOL";
     
     // =============== INPUT TEXTURE LOCATION =================
     
     // Colors (RGB)
     // Character Color
-    public static final Color EKKO_BLUE = CardHelper.getColor(50.0f, 225.0f, 225.0f);
+    public static final Color EKKO_BLUE = CardHelper.getColor(50.0f, 225.0f, 225.0f).cpy();
 
     // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-    
+//    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
+//    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
+//    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
+
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
@@ -320,7 +327,7 @@ public class EkkoMod implements
         ModPanel settingsPanel = new ModPanel();
         
         // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
+        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("TO BE CHANGED",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
                 enablePlaceholder, // Boolean it uses
                 settingsPanel, // The mod panel in which this button will be in
@@ -366,8 +373,10 @@ public class EkkoMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        //BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
-        
+        BaseMod.addPotion(BottledSheen.class, Color.GOLD.cpy(), Color.CYAN.cpy(), null, BottledSheen.POTION_ID, EkkoTheBoyWhoShatteredTime.Enums.EKKO_THE_BOY_WHO_SHATTERED_TIME);
+        BaseMod.addPotion(ResonatingPotion.class, Color.valueOf("0d429dff").cpy(), null, Color.CYAN.cpy(), ResonatingPotion.POTION_ID, EkkoTheBoyWhoShatteredTime.Enums.EKKO_THE_BOY_WHO_SHATTERED_TIME);
+        BaseMod.addPotion(EquilibriumPotion.class, Color.DARK_GRAY.cpy(), Color.CHARTREUSE.cpy(), Color.CORAL.cpy(), EquilibriumPotion.POTION_ID, EkkoTheBoyWhoShatteredTime.Enums.EKKO_THE_BOY_WHO_SHATTERED_TIME);
+
         logger.info("Done editing potions");
     }
     
@@ -383,9 +392,12 @@ public class EkkoMod implements
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new zDriveResonance(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
         BaseMod.addRelicToCustomPool(new zDriveGreediness(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
-        //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
-        //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
-        
+        BaseMod.addRelicToCustomPool(new TwistedClockwork(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
+        BaseMod.addRelicToCustomPool(new ChainArmlet(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
+        BaseMod.addRelicToCustomPool(new PairOfMasks(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
+        BaseMod.addRelicToCustomPool(new BronzeTube(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
+        BaseMod.addRelicToCustomPool(new ResonanceReceiver(), EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO);
+
         // This adds a relic to the Shared pool. Every character can find this relic.
         //BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
         
@@ -418,6 +430,7 @@ public class EkkoMod implements
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new TimeMaster());
+        BaseMod.addCard(new Powered());
 
         BaseMod.addCard(new PhaseDive());
         BaseMod.addCard(new HauntingGuise());
@@ -453,7 +466,6 @@ public class EkkoMod implements
         BaseMod.addCard(new Confident());
         BaseMod.addCard(new Greed());
         BaseMod.addCard(new NaggingBlow());
-        BaseMod.addCard(new Powered());
         BaseMod.addCard(new GuinsoosRageblade());
         BaseMod.addCard(new CatchUpTime());
         BaseMod.addCard(new AcademyAttraction());
@@ -462,7 +474,7 @@ public class EkkoMod implements
         BaseMod.addCard(new SktSynergy());
         BaseMod.addCard(new ItemsAfterimage());
         BaseMod.addCard(new Resocharge());
-        BaseMod.addCard(new PhasingArmor());
+        //BaseMod.addCard(new PhasingArmor());
         BaseMod.addCard(new TrickOrTreatTrend());
         BaseMod.addCard(new Periocharge());
         BaseMod.addCard(new Disturblast());
@@ -486,6 +498,17 @@ public class EkkoMod implements
         BaseMod.addCard(new TrinityForce());
         BaseMod.addCard(new TimeIndustry());
         BaseMod.addCard(new QuickBreak());
+        BaseMod.addCard(new KneeNSwordCombo());
+        BaseMod.addCard(new Vibin());
+        BaseMod.addCard(new LevelUp());
+        BaseMod.addCard(new FluidEnergy());
+        BaseMod.addCard(new OverloadingWeapon());
+        BaseMod.addCard(new Process());
+        BaseMod.addCard(new AfterimageTimeWrap());
+        BaseMod.addCard(new LoadUp());
+        BaseMod.addCard(new IceBreak());
+        BaseMod.addCard(new SneakHit());
+        BaseMod.addCard(new CalmingWaves());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -551,7 +574,7 @@ public class EkkoMod implements
     public static ArrayList<TooltipInfo> resonanceTooltip; //define static list of tooltip info
     static { //static code block, is executed the first time the class is used
         resonanceTooltip = new ArrayList<TooltipInfo>(); //create new instance
-        resonanceTooltip.add(new TooltipInfo("Resonance", "When at 3 stacks, draw 2 cards and deal damage equal to twice your strength, can be activated only once per turn per enemy.")); //Add a tooltip to the list
+        resonanceTooltip.add(new TooltipInfo("Resonance", "When at 3 stacks draw two cards, deal damage equal to your strength and gain 4 Block, can be activated only once per turn per enemy.")); //Add a tooltip to the list
     }
     public static ArrayList<TooltipInfo> itemTooltip; //define static list of tooltip info
     static { //static code block, is executed the first time the class is used

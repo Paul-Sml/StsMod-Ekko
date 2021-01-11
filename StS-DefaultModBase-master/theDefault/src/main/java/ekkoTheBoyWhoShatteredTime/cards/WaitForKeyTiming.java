@@ -30,6 +30,7 @@ public class WaitForKeyTiming extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
+        selfRetain = true;
     }
 
     // Actions the card should do.

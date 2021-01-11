@@ -1,6 +1,7 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
+import ekkoTheBoyWhoShatteredTime.powers.Resonance;
 
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
@@ -34,13 +36,16 @@ public class FeelIt extends AbstractDynamicCard {
     public FeelIt(){
         super(ID,IMG,COST,TYPE,COLOR,RARITY,TARGET);
         baseDamage = DAMAGE;
+        this.tags.add(EkkoMod.RESONATE);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new ApplyPowerAction(m, p, new Resonance(m, p, 1), 1));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if (EkkoMod.gainedStrDexThisTurn == true) {
+            this.addToBot(new ApplyPowerAction(m, p, new Resonance (m, p, 1), 1));
             this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
     }

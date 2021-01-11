@@ -9,17 +9,17 @@
   },
   "ekkoTheBoyWhoShatteredTime:TimeMaster": {
     "NAME": "Time Master",
-    "DESCRIPTION": "Next turn, gain [E].",
-    "UPGRADE_DESCRIPTION": "Gain [E]. NL Next turn, gain [E]."
+    "DESCRIPTION": "Retain. NL Next turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [E]. NL Next turn, gain [E]."
   },
   "ekkoTheBoyWhoShatteredTime:HauntingGuise": {
     "NAME": "Haunting Guise",
     "DESCRIPTION": "Apply slow. NL Gain !M! temporary HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION":"Apply slow. NL Gain !M! temporary HP. NL Exhaust. Innate."
+    "UPGRADE_DESCRIPTION":"Innate. NL Apply slow. NL Gain !M! temporary HP. NL Exhaust."
   },
   "ekkoTheBoyWhoShatteredTime:PhaseDive": {
     "NAME": "Phase Dive",
-    "DESCRIPTION": "The next base ekkotheboywhoshatteredtime:Strike you play this turn deals + 6.",
+    "DESCRIPTION": "The next ekkotheboywhoshatteredtime:Strike you play this turn deals + 6.",
     "UPGRADE_DESCRIPTION": "The next ekkotheboywhoshatteredtime:Strike you play this turn deals + 6. Create a ekkotheboywhoshatteredtime:Strike in your hand that cost 0 for the turn"
   },
   "ekkoTheBoyWhoShatteredTime:Knowledge": {
@@ -29,16 +29,16 @@
   },
   "ekkoTheBoyWhoShatteredTime:WaitForKeyTiming": {
     "NAME": "Wait for key timing",
-    "DESCRIPTION": "Next turn, gain [E] and draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Next turn, gain [E] and draw !M! cards."
+    "DESCRIPTION": "Retain. NL Next turn, gain [E] and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Next turn, gain [E] and draw !M! cards."
   },
   "ekkoTheBoyWhoShatteredTime:AfterimageBait": {
     "NAME": "Afterimage bait",
-    "DESCRIPTION": "Next turn, gain !B! Block. NL Retain."
+    "DESCRIPTION": "Retain. NL Next turn, gain !B! Block."
   },
   "ekkoTheBoyWhoShatteredTime:NashorsTooth": {
     "NAME": "Nashor's Tooth",
-    "DESCRIPTION": "ekkotheboywhoshatteredtime:Strikes deal + 5. NL If you played a total of three \"Nashor's tooth\", ekkotheboywhoshatteredtime:Strikes now cost 0"
+    "DESCRIPTION": "ekkotheboywhoshatteredtime:Strikes deal + 5. NL If you played a total of three \"Nashor's tooth\", ekkotheboywhoshatteredtime:Strikes now cost 0."
   },
   "ekkoTheBoyWhoShatteredTime:BansheesVeil": {
     "NAME": "Banshee's Veil",
@@ -54,13 +54,11 @@
   },
   "ekkoTheBoyWhoShatteredTime:IcebornGauntlet": {
     "NAME": "Iceborn gauntlet",
-    "DESCRIPTION": "Gain 2 Dexterity. NL Gain !M! ekkotheboywhoshatteredtime:Sheen.",
-    "UPGRADE_DESCRIPTION": "Gain 3 Dexterity. NL Gain !M! ekkotheboywhoshatteredtime:Sheen."
+    "DESCRIPTION": "Gain !D! Dexterity. NL Gain !M! ekkotheboywhoshatteredtime:Sheen."
   },
   "ekkoTheBoyWhoShatteredTime:TrinityForce": {
   "NAME": "Trinity force",
-  "DESCRIPTION": "Gain !M! Strength and Dexterity. NL Gain 6 ekkotheboywhoshatteredtime:Sheen. NL At the start of your turn create a ekkotheboywhoshatteredtime:Strike in your hand.",
-  "UPGRADE_DESCRIPTION": "Gain !M! Strength and Dexterity. NL Gain 8 ekkotheboywhoshatteredtime:Sheen. NL At the start of your turn create a ekkotheboywhoshatteredtime:Strike in your hand."
+  "DESCRIPTION": "Gain !M! Strength and Dexterity. NL Gain !D! ekkotheboywhoshatteredtime:Sheen. NL At the start of your turn create a ekkotheboywhoshatteredtime:Strike in your hand."
 },
   "ekkoTheBoyWhoShatteredTime:Overflow": {
     "NAME": "Overflow",
@@ -85,8 +83,8 @@
   },
   "ekkoTheBoyWhoShatteredTime:PlayTheBeat": {
     "NAME": "Play the beat",
-    "DESCRIPTION": "Deal damage equal to twice your Strength. NL Gain Block equal to twice your Dexterity. NL Care of negative values.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your Strength. NL Gain Block equal to your Dexterity. NL Care of negative values. NL A random card in your hand costs 0 for the turn"
+    "DESCRIPTION": "Deal damage equal to exactly twice your Strength. NL Gain Block equal to exactly twice your Dexterity. NL Care of negative values.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to twice your Strength. NL Gain Block equal to twice your Dexterity. NL Care of negative values. NL A random card in your hand costs 0 for the turn."
   },
   "ekkoTheBoyWhoShatteredTime:Leap": {
     "NAME": "Leap",
@@ -95,7 +93,8 @@
   },
   "ekkoTheBoyWhoShatteredTime:RecallingPunch": {
     "NAME": "Recalling punch",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! ekkotheboywhoshatteredtime:Strike from your discard."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! ekkotheboywhoshatteredtime:Strike from your discard.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw !M! ekkotheboywhoshatteredtime:Strikes from your discard."
   },
   "ekkoTheBoyWhoShatteredTime:ComeAtMe": {
     "NAME": "Come at me",
@@ -103,11 +102,11 @@
   },
   "ekkoTheBoyWhoShatteredTime:DodgeTraining": {
     "NAME": "Dodge training",
-    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When exhausted gain !M! Dexterity"
+    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When Exhausted gain !M! Dexterity"
   },
   "ekkoTheBoyWhoShatteredTime:Playful": {
     "NAME": "Playful",
-    "DESCRIPTION": "Draw a number of card equal to your Strength."
+    "DESCRIPTION": "Draw !M! card, NL affected by Strength. NL Next turn, draw !M! card, NL affected by Dexterity. Care of negative values."
   },
   "ekkoTheBoyWhoShatteredTime:URF": {
     "NAME": "U.R.F.",
@@ -123,19 +122,19 @@
   },
   "ekkoTheBoyWhoShatteredTime:Discharge": {
     "NAME": "Discharge",
-    "DESCRIPTION": "Deal 4 damage for each [E] spent that turn."
+    "DESCRIPTION": "Deal 5 damage for each [E] spent that turn."
   },
   "ekkoTheBoyWhoShatteredTime:HextechProtobelt": {
     "NAME": "Hextech Protobelt-01",
-    "DESCRIPTION": "Deal !D! damage and draw 1 card. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and draw 1 card. NL Exhaustive !stslib:ex!."
   },
   "ekkoTheBoyWhoShatteredTime:NeedlesslyLargeRod": {
     "NAME": "Needlessly large rod",
-    "DESCRIPTION": "Gain !M! Strength. NL If you already played one needlessly large rod, gain half of your current Strength."
+    "DESCRIPTION": "Gain !M! Strength. NL Every two \"Needlessly large rod\" you play, gain half of your current Strength."
   },
   "ekkoTheBoyWhoShatteredTime:AfterimageSetup": {
     "NAME": "Afterimage setup",
-    "DESCRIPTION": "Gain !B! Block. NL All the Block lost that turn from now on, will be brought back next turn."
+    "DESCRIPTION": "Gain !B! Block. NL next turn gain block equal to the damage blocked."
   },
   "ekkoTheBoyWhoShatteredTime:ParallelConvergence": {
     "NAME": "Parallel convergence",
@@ -148,16 +147,16 @@
   },
   "ekkoTheBoyWhoShatteredTime:ZhonyasHourglass": {
     "NAME": "Zhonya's hourglass",
-    "DESCRIPTION": "Stun enemies that intends to attack or debuff you. NL End your turn. NL Exhaust."
+    "DESCRIPTION": "Stun enemies that intend to attack or debuff you. NL End your turn. NL Exhaust."
   },
   "ekkoTheBoyWhoShatteredTime:TimeRecall": {
     "NAME": "Time recall",
-    "DESCRIPTION": "Return !M! card from your discard pile to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Return !M! cards from your discard pile to your hand. Exhaust"
+    "DESCRIPTION": "Take 2 damage. NL Return !M! card from your discard pile to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Take 2 damage. NL Return !M! cards from your discard pile to your hand. NL Exhaust."
   },
   "ekkoTheBoyWhoShatteredTime:Greed": {
     "NAME": "Greed",
-    "DESCRIPTION": "Take 2 damage. NL Deal !D! damage. NL ekkotheboywhoshatteredtime:Resonate. If this attack applies the third ekkotheboywhoshatteredtime:Resonance stack, NL gain [E] ."
+    "DESCRIPTION": "Take !M! damage. NL Deal !D! damage. NL ekkotheboywhoshatteredtime:Resonate. If this attack applies the third ekkotheboywhoshatteredtime:Resonance stack, NL gain [E] ."
   },
   "ekkoTheBoyWhoShatteredTime:Confident": {
     "NAME": "Confident",
@@ -169,8 +168,7 @@
   },
   "ekkoTheBoyWhoShatteredTime:Powered": {
     "NAME": "Powered",
-    "DESCRIPTION": "Gain 3 temporary Strength and Dexterity.",
-    "UPGRADE_DESCRIPTION": "Gain 3 Strength and Dexterity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! temporary Strength and Dexterity. NL If you fully apply ekkotheboywhoshatteredtime:Resonance, they become permanent."
   },
   "ekkoTheBoyWhoShatteredTime:GuinsoosRageblade": {
     "NAME": "Guinsoo's rageblade",
@@ -178,12 +176,11 @@
   },
   "ekkoTheBoyWhoShatteredTime:CatchUpTime": {
     "NAME": "Catch up time",
-    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When exhausted, gain [E] at the start of every turn."
+    "DESCRIPTION": "Exhaustive !stslib:ex!. NL When Exhausted, gain [E] at the start of every turn."
   },
   "ekkoTheBoyWhoShatteredTime:AcademyAttraction": {
     "NAME": "Academy attraction",
-    "DESCRIPTION": "Fully applying ekkotheboywhoshatteredtime:Resonance gives you 1 Strength and Dexterity.",
-    "UPGRADE_DESCRIPTION": "Fully applying ekkotheboywhoshatteredtime:Resonance gives you 2 Strength and Dexterity."
+    "DESCRIPTION": "Fully applying ekkotheboywhoshatteredtime:Resonance gives you !M! Strength and Dexterity."
   },
   "ekkoTheBoyWhoShatteredTime:SandstormSympathy": {
     "NAME": "Sandstorm sympathy",
@@ -192,7 +189,7 @@
   },
   "ekkoTheBoyWhoShatteredTime:ProjectPreference": {
     "NAME": "Project preference",
-    "DESCRIPTION": "Deal !D! damage, !M! times. NL ekkotheboywhoshatteredtime:Resonate"
+    "DESCRIPTION": "Deal !D! damage, NL !M! times. NL ekkotheboywhoshatteredtime:Resonate"
   },
   "ekkoTheBoyWhoShatteredTime:SktSynergy": {
     "NAME": "SKT Synergy",
@@ -213,8 +210,8 @@
   },
   "ekkoTheBoyWhoShatteredTime:TrickOrTreatTrend": {
     "NAME": "Trick or treat trend",
-    "DESCRIPTION": "Place a card from your Exhaust pile into your hand. Exhaust a card from your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Place a card from your Exhaust pile into your hand. Exhaust a card from your hand. NL Exhaust. Grave."
+    "DESCRIPTION": "Place a card from your Exhaust pile into your hand. NL Exhaust a card from your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Place a card from your Exhaust pile into your hand. NL Exhaust a card from your hand. NL Exhaust. Grave."
   },
   "ekkoTheBoyWhoShatteredTime:Periocharge": {
     "NAME": "Periocharge",
@@ -224,7 +221,7 @@
   "ekkoTheBoyWhoShatteredTime:Disturblast": {
     "NAME": "Disturblast",
     "DESCRIPTION": "Remove all ekkotheboywhoshatteredtime:Resonance and delayed ekkotheboywhoshatteredtime:Resonance stacks from the target. NL Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Remove all ekkotheboywhoshatteredtime:Resonance, delayed ekkotheboywhoshatteredtime:Resonance and [#EDCD5F]Resonance [#EDCD5F]cooldown[] stacks from the target. NL Deal !D! damage."
+    "UPGRADE_DESCRIPTION": "Remove all ekkotheboywhoshatteredtime:Resonance, delayed ekkotheboywhoshatteredtime:Resonance and NL  *Resonance *cooldown stacks from the target. NL Deal !D! damage."
   },
   "ekkoTheBoyWhoShatteredTime:Acceleration": {
     "NAME": "Acceleration",
@@ -232,14 +229,13 @@
     "UPGRADE_DESCRIPTION": "Shuffle your discard pile into your draw pile. NL Draw a card for each [E] spent that turn."
   },
   "ekkoTheBoyWhoShatteredTime:GrandeFinale": {
-    "NAME": "Grande finale",
+    "NAME": "Final solo",
     "DESCRIPTION": "Deal !D! damage. If Fatal, gain !M! Gold and heal 3 HP. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. If Fatal, gain !M! Gold and heal 5 HP. NL Exhaust."
   },
   "ekkoTheBoyWhoShatteredTime:MicCheck": {
     "NAME": "Mic check",
-    "DESCRIPTION": "Gain [E] . NL Draw !M! card. NL Gain !M! temporary Strength and Dexterity.",
-    "UPGRADE_DESCRIPTION": "Gain [E] . NL Draw !M! cards. NL Gain !M! temporary Strength and Dexterity."
+    "DESCRIPTION": "Gain [E] . NL Draw 1 card. NL Gain !M! temporary Strength and Dexterity."
   },
   "ekkoTheBoyWhoShatteredTime:DelayedWork": {
     "NAME": "Delayed work",
@@ -247,15 +243,15 @@
   },
   "ekkoTheBoyWhoShatteredTime:FeelIt": {
     "NAME": "Feel it",
-    "DESCRIPTION": "Deal !D! damage. If you gained Strength or Dexterity this turn, deal !D! damage again."
+    "DESCRIPTION": "Deal !D! damage. NL If you gained Strength or Dexterity this turn, deal !D! damage again. NL ekkotheboywhoshatteredtime:Resonate."
   },
   "ekkoTheBoyWhoShatteredTime:AfterimageTease": {
     "NAME": "Afterimage tease",
-    "DESCRIPTION": "Deal !D! damage. If you attacked last turn, gain [E] and apply !M! Vulnerable"
+    "DESCRIPTION": "Deal !D! damage. NL If you attacked last turn, gain [E] and apply !M! Vulnerable"
   },
   "ekkoTheBoyWhoShatteredTime:HailOfBlades": {
     "NAME": "Hail of blades",
-    "DESCRIPTION": "If you did not attack last turn, create !M! ekkotheboywhoshatteredtime:Strikes in your hand that cost 0 for the turn. NL Innate."
+    "DESCRIPTION": "Innate. NL If you did not attack last turn, create !M! ekkotheboywhoshatteredtime:Strikes in your hand that cost 0 for the turn."
   },
   "ekkoTheBoyWhoShatteredTime:PulsefirePooling": {
     "NAME": "Pulsefire pooling",
@@ -264,21 +260,21 @@
   },
   "ekkoTheBoyWhoShatteredTime:Backtrack": {
     "NAME": "Backtrack",
-    "DESCRIPTION": "Gain !B! Block. This card costs 0 if you fully applied ekkotheboywhoshatteredtime:Resonance this turn."
+    "DESCRIPTION": "Gain !B! Block. NL This card costs 0 if you fully applied ekkotheboywhoshatteredtime:Resonance this turn."
   },
   "ekkoTheBoyWhoShatteredTime:DuplicateTimelines": {
   "NAME": "Duplicate timelines",
   "DESCRIPTION": "Trigger most of delayed effects now without removing them.",
-  "UPGRADE_DESCRIPTION": "Trigger most of delayed effects now without removing them. NL Retain."
+  "UPGRADE_DESCRIPTION": "Retain. NL Trigger most of delayed effects now without removing them."
   },
   "ekkoTheBoyWhoShatteredTime:KeepingMomentum": {
     "NAME": "Keeping momentum",
     "DESCRIPTION": "This turn : When you play an attack gain 1 Strength. When you play a skill gain 1 Dexterity. NL If you fully apply ekkotheboywhoshatteredtime:Resonance return this to the top of your deck on your next turn. Exhaust."
   },
   "ekkoTheBoyWhoShatteredTime:CommittedStrike": {
-    "NAME": "Committed strike",
-    "DESCRIPTION": "Deal !D! damage. ekkotheboywhoshatteredtime:Resonate. NL The next time you play a Strike this turn, return this card to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL The next time you play a Strike this turn, return this card to your hand. NL This card acts as a ekkotheboywhoshatteredtime:Strike."
+    "NAME": "Committed attack",
+    "DESCRIPTION": "Deal !D! damage. ekkotheboywhoshatteredtime:Resonate. NL The next time you play a ekkotheboywhoshatteredtime:Strike this turn, return this card to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL The next time you play a ekkotheboywhoshatteredtime:Strike this turn, return this card to your hand. NL This card acts as a ekkotheboywhoshatteredtime:Strike."
   },
   "ekkoTheBoyWhoShatteredTime:SpHit": {
     "NAME": "Sp-Hit",
@@ -286,13 +282,13 @@
   },
   "ekkoTheBoyWhoShatteredTime:HauntedAfterimage": {
     "NAME": "Haunted afterimage",
-    "DESCRIPTION": "Exhaust 1 card at random. Deal !D! damage to a random enemy twice. NL ekkotheboywhoshatteredtime:Resonate.",
-    "UPGRADE_DESCRIPTION": "Exhaust 1 card. Deal !D! damage twice. NL ekkotheboywhoshatteredtime:Resonate."
+    "DESCRIPTION": "Exhaust 1 card at random. NL Deal !D! damage to a random enemy twice. NL ekkotheboywhoshatteredtime:Resonate.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL Deal !D! damage twice. NL ekkotheboywhoshatteredtime:Resonate."
   },
   "ekkoTheBoyWhoShatteredTime:VelocityConsuming": {
     "NAME": "Velocity consuming",
-    "DESCRIPTION": "Exhaust 1 card and gain effects based on its type. Attack : !M! Strength, Skill : !M! Dexterity, Power : 4 Temporary HP, Status : Draw 3 cards, Curse : nothing.",
-    "UPGRADE_DESCRIPTION": "Exhaust 1 card and gain effects based on its type. Attack : !M! Strength, Skill : !M! Dexterity, Power : 6 Temporary HP, Status : Draw 4 cards, Curse : Heal 2 HP."
+    "DESCRIPTION": "Exhaust a card. NL Attack : Gain !M! Strength. NL Skill : Gain !M! Dexterity. NL Power : Gain !D! Temporary HP. NL Status : Draw !B! cards. NL Curse : nothing.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card. NL Attack : Gain !M! Strength. NL Skill : Gain !M! Dexterity. NL Power : Gain !D! Temporary HP. NL Status : Draw !B! cards. NL Curse : Heal 2 HP."
   },
   "ekkoTheBoyWhoShatteredTime:Unchained": {
     "NAME": "Unchained",
@@ -300,11 +296,59 @@
   },
   "ekkoTheBoyWhoShatteredTime:TimeIndustry": {
     "NAME": "Time industry",
-    "DESCRIPTION": "Play one copy of each item you played this combat. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Play one copy of each item you played this combat. NL Exhaust. Grave."
+    "DESCRIPTION": "Play one copy of each *item you played this combat. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Play one copy of each *item you played this combat. NL Exhaust. Grave."
   },
   "ekkoTheBoyWhoShatteredTime:QuickBreak": {
     "NAME": "Quick break",
-    "DESCRIPTION": "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes."
+    "DESCRIPTION": "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes. NL Then add a ekkotheboywhoshatteredtime:Strike to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain block equal to the number of your ekkotheboywhoshatteredtime:Strikes. NL Then add a ekkotheboywhoshatteredtime:Strike that costs 0 to your hand."
+  },
+  "ekkoTheBoyWhoShatteredTime:KneeNSwordCombo": {
+    "NAME": "Knee'n'sword",
+    "DESCRIPTION": "Deal !B! damage. NL Gain !D! Block. NL damage and Block modifiers are inverted for this card."
+  },
+  "ekkoTheBoyWhoShatteredTime:Vibin": {
+    "NAME": "Vibin'",
+    "DESCRIPTION": "Add a random card with ekkotheboywhoshatteredtime:Resonate to your hand. NL It costs 0 this turn. NL Exhaust."
+  },
+  "ekkoTheBoyWhoShatteredTime:LevelUp": {
+    "NAME": "Level up",
+    "DESCRIPTION": "Upgrade your ekkotheboywhoshatteredtime:Strikes for the combat. NL This can upgrade them any number of time."
+  },
+  "ekkoTheBoyWhoShatteredTime:FluidEnergy": {
+    "NAME": "Fluid energy",
+    "DESCRIPTION": "Gain !M! Block for each extra [E] that you generate."
+  },
+  "ekkoTheBoyWhoShatteredTime:OverloadingWeapon": {
+    "NAME": "Overloading weapon",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] . Every time this card is played, increase its damage by !M! and its cost by 1 for this combat."
+  },
+  "ekkoTheBoyWhoShatteredTime:Process": {
+    "NAME": "Process",
+    "DESCRIPTION": "Gain Dexterity equal to the amount of extra [E] that you generated this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain [E] . NL Then gain Dexterity equal to the amount of extra [E] that you generated this turn. NL Exhaust."
+  },
+  "ekkoTheBoyWhoShatteredTime:AfterimageTimeWrap": {
+    "NAME": "Afterimage time wrap",
+    "DESCRIPTION": "Deal !D! damage for each delayed effect NL on you and the target. NL ekkotheboywhoshatteredtime:Resonate."
+  },
+  "ekkoTheBoyWhoShatteredTime:LoadUp": {
+    "NAME": "Load up",
+    "DESCRIPTION": "Gain X [E] . NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain X [E] ."
+  },
+  "ekkoTheBoyWhoShatteredTime:IceBreak": {
+    "NAME": "Ice break",
+    "DESCRIPTION": "Deal !D! damage for each extra [E] that you generated this turn."
+  },
+  "ekkoTheBoyWhoShatteredTime:SneakHit": {
+    "NAME": "Sneak-Hit",
+    "DESCRIPTION": "Deal !D! damage. NL If this attack is fully blocked gain !M! Artifact. NL If this attack is fully unblocked draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this attack is fully blocked gain !M! Artifact. NL If this attack is fully unblocked draw !M! cards."
+  },
+  "ekkoTheBoyWhoShatteredTime:CalmingWaves": {
+    "NAME": "Calming waves",
+    "DESCRIPTION": "Apply 1 ekkotheboywhoshatteredtime:Resonance. NL Gain !B! Block."
   }
 }

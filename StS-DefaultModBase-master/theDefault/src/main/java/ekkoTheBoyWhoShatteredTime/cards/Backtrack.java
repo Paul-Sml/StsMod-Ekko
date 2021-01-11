@@ -24,7 +24,7 @@ public class Backtrack extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int BLOCK = 11;
+    private static final int BLOCK = 12;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Backtrack() {

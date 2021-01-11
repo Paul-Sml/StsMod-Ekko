@@ -62,24 +62,21 @@ public class Resonance extends AbstractPower implements CloneablePowerInterface 
                 this.addToBot(new GainEnergyAction(1));
             }
             if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID) && AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount>0) {
-                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
+                this.addToBot(new DamageAction(this.owner, new DamageInfo(AbstractDungeon.player, (AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
             }
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 4));
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
             this.addToTop(new ApplyPowerAction(this.owner, this.owner, new CooldownResonance(this.owner), -1));
-            if (AbstractDungeon.player.hasPower(AcademyAttractionPower.POWER_ID)) {
-                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
-                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
-            }
-            if (AbstractDungeon.player.hasPower(UpgradedAcademyAttractionPower.POWER_ID)) {
-                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 2), 2));
-                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 2), 2));
-            }
-            /*if (AbstractDungeon.player.hasPower(KeepingMomentumPower.POWER_ID)) {
-                this.addToBot(new KeepingMomentumAction(((KeepingMomentumPower) AbstractDungeon.player.getPower(KeepingMomentumPower.POWER_ID)).c));
-            }*/
-        }
 
+            if (AbstractDungeon.player.hasPower(AcademyAttractionPower.POWER_ID))
+                AbstractDungeon.player.getPower(AcademyAttractionPower.POWER_ID).onSpecificTrigger();
+
+            if (AbstractDungeon.player.hasPower(LoseStrengthPowerBuff.POWER_ID))
+                this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, LoseStrengthPowerBuff.POWER_ID));
+            if (AbstractDungeon.player.hasPower(LoseDexterityPowerBuff.POWER_ID))
+                this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, LoseDexterityPowerBuff.POWER_ID));
+
+        }
     }
 
     public void atStartOfTurn() {

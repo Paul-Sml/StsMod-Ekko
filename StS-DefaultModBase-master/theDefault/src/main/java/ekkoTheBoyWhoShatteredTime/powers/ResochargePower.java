@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
-import ekkoTheBoyWhoShatteredTime.cards.GuinsoosRageblade;
 import ekkoTheBoyWhoShatteredTime.relics.zDriveGreediness;
 import ekkoTheBoyWhoShatteredTime.relics.zDriveResonance;
 import ekkoTheBoyWhoShatteredTime.util.TextureLoader;
@@ -72,10 +71,16 @@ public class ResochargePower extends AbstractPower implements CloneablePowerInte
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasPower(GuinsoosRagebladePower.POWER_ID)) ||
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveGreediness.ID)) ||
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveResonance.ID)) ||
-                card.hasTag(EkkoMod.RESONATE)
+                (
+                    card.type == AbstractCard.CardType.ATTACK
+                )
+                    &&
+                (
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasPower(GuinsoosRagebladePower.POWER_ID)) ||
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveGreediness.ID)) ||
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveResonance.ID)) ||
+                    card.hasTag(EkkoMod.RESONATE)
+                )
         ) {
             return damage + (amount);
         }else
@@ -85,10 +90,16 @@ public class ResochargePower extends AbstractPower implements CloneablePowerInte
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasPower(GuinsoosRagebladePower.POWER_ID)) ||
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveGreediness.ID)) ||
-                (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveResonance.ID)) ||
-                card.hasTag(EkkoMod.RESONATE)
+                (
+                    card.type == AbstractCard.CardType.ATTACK
+                )
+                    &&
+                (
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasPower(GuinsoosRagebladePower.POWER_ID)) ||
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveGreediness.ID)) ||
+                    (card.hasTag(AbstractCard.CardTags.STARTER_STRIKE) && AbstractDungeon.player.hasRelic(zDriveResonance.ID)) ||
+                    card.hasTag(EkkoMod.RESONATE)
+                )
         ) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }

@@ -8,9 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 import ekkoTheBoyWhoShatteredTime.powers.AcademyAttractionPower;
-import ekkoTheBoyWhoShatteredTime.powers.UpgradedAcademyAttractionPower;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class AcademyAttraction extends AbstractDynamicCard {
@@ -45,17 +43,16 @@ public class AcademyAttraction extends AbstractDynamicCard {
 
     public AcademyAttraction() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
+
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!this.upgraded)
-        this.addToBot(new ApplyPowerAction(p, p, new AcademyAttractionPower(p, p, 1), 1));
-        else
-        this.addToBot(new ApplyPowerAction(p, p, new UpgradedAcademyAttractionPower(p, p, 1), 1));
-
+        this.addToBot(new ApplyPowerAction(p, p, new AcademyAttractionPower(p, p, magicNumber), magicNumber));
     }
 
     //Upgraded stats.
@@ -63,7 +60,8 @@ public class AcademyAttraction extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(1);
+//            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

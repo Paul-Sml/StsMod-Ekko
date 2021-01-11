@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
+import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
+import com.megacrit.cardcrawl.vfx.SpotlightPlayerEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class GrandeFinaleAction extends AbstractGameAction {
-    private int increaseGold;
-    private int heal;
-    private DamageInfo info;
+    private final int increaseGold;
+    private final int heal;
+    private final DamageInfo info;
     private static final float DURATION = 0.1F;
 
     public GrandeFinaleAction(AbstractCreature target, DamageInfo info, int goldAmount, int healAmount) {
@@ -36,9 +37,8 @@ public class GrandeFinaleAction extends AbstractGameAction {
                 AbstractDungeon.player.gainGold(this.increaseGold);
                 AbstractDungeon.player.heal(this.heal);
 
-                for(int i = 0; i < this.increaseGold; ++i) {
-                    AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
-                }
+                AbstractDungeon.effectList.add(new RainingGoldEffect(this.increaseGold, true));
+                AbstractDungeon.effectsQueue.add(new SpotlightPlayerEffect());
             }
 
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

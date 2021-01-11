@@ -35,9 +35,10 @@ public class zDriveGreediness extends CustomRelic {
         }
     }
 
-    public void atEndOfTurn() {
+    public void onPlayerEndTurn() {
         if (ResonanceCheck == false) {
-            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, 2, false), 2));
+            //System.out.println("hello");
+            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VulnerablePower(AbstractDungeon.player, 1, false), 1));
         }
     }
 

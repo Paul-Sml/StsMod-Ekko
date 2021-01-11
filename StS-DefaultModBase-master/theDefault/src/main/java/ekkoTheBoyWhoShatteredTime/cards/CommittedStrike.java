@@ -39,7 +39,6 @@ public class CommittedStrike extends AbstractDynamicCard {
     public CommittedStrike(){
         super(ID,IMG,COST,TYPE,COLOR,RARITY,TARGET);
         baseDamage = DAMAGE;
-        this.tags.add(CardTags.STRIKE);
         this.tags.add(EkkoMod.RESONATE);
     }
 
@@ -61,9 +60,11 @@ public class CommittedStrike extends AbstractDynamicCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
+            this.name = "Committed strike";
             upgradeName();
             this.tags.remove(EkkoMod.RESONATE);
             this.tags.add(CardTags.STARTER_STRIKE);
+            this.tags.add(CardTags.STRIKE);
             //  upgradeDamage(UPGRADE_PLUS_DMG);
             this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();

@@ -1,9 +1,13 @@
 package ekkoTheBoyWhoShatteredTime.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.blue.FTL;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.*;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 
@@ -26,13 +30,61 @@ public class Playful extends AbstractDynamicCard {
 
     public Playful() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.getPower(StrengthPower.POWER_ID) != null)
-            this.addToBot(new DrawCardAction(p, p.getPower(StrengthPower.POWER_ID).amount));
+        if(p.hasPower(StrengthPower.POWER_ID)) {
+            int s = this.magicNumber + p.getPower(StrengthPower.POWER_ID).amount;
+
+            if (s > 0)
+                this.addToBot(new DrawCardAction(p, s));
+            if (s < 0)
+                this.addToBot(new DiscardAction(p, p, -s, true));
+        }
+
+        if(p.hasPower(DexterityPower.POWER_ID)) {
+            int d = this.magicNumber + p.getPower(DexterityPower.POWER_ID).amount;
+
+            if (d > 0)
+                this.addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, d), d));
+            if (d < 0)
+                this.addToBot(new ApplyPowerAction(p, p, new DrawReductionPower(p, -d), -d));
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        AbstractPlayer p = AbstractDungeon.player;
+
+        String descr1 = "Draw !M! card, NL affected by Strength.";
+        if(p.hasPower(DexterityPower.POWER_ID)) {
+            int s = this.magicNumber + p.getPower(StrengthPower.POWER_ID).amount;
+            String color = "";
+            if (s > 1)
+                color = "#g";
+            if (s < 1)
+                color = "#r";
+
+            descr1 = "Draw " + color + s + " card, NL affected by Strength.";
+        }
+
+        String descr2 = " NL Next turn, draw !M! card, NL affected by Dexterity. Care of negative values.";
+        if(p.hasPower(StrengthPower.POWER_ID)) {
+            int d = this.magicNumber + p.getPower(StrengthPower.POWER_ID).amount;
+            String color = "";
+            if (d > 1)
+                color = "#g";
+            if (d < 1)
+                color = "#r";
+
+            descr2 = "Draw " + color + d + " card, NL affected by Strength.";
+        }
+
+        this.rawDescription = descr1 + descr2;
     }
 
     //Upgraded stats.

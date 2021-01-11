@@ -18,9 +18,11 @@ public class TurnStartCheck {
             locator = Locator.class
     )
     public static void Insert(GameActionManager __instance) {
-        EkkoMod.hpAtTurnStart = AbstractDungeon.player.currentHealth;
         EkkoMod.gainedStrDexThisTurn = false;
+        EkkoMod.hpAtTurnStart = AbstractDungeon.player.currentHealth;
         ResonanceCheck = false;
+        EkkoMod.checkEnergy = 0;
+        EkkoMod.usedEnergy = 0;
     }
     private static class Locator extends SpireInsertLocator {
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {

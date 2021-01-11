@@ -56,13 +56,13 @@ public class Chronobreak extends AbstractDynamicCard {
             //Heal
         p.currentHealth = (int) EkkoMod.hpAtTurnStart;
             //E reco
-        int x = 0;
+        /*int x = 0;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             x += c.costForTurn;
         }
-        x -= this.costForTurn;
+        x -= this.costForTurn;*/
 
-        this.addToBot(new GainEnergyAction(x));
+        this.addToBot(new GainEnergyAction(EkkoMod.usedEnergy));
             //Damage
         if (EkkoMod.lastTurnAttacked == true) {
             this.addToBot(new ApplyPowerAction(m, p, new Resonance(m, p, 1), 1));
@@ -80,15 +80,15 @@ public class Chronobreak extends AbstractDynamicCard {
     @Override
     public void applyPowers() {
         AbstractPower strength = AbstractDungeon.player.getPower(StrengthPower.POWER_ID);
-        int x = 0;
+        /*int x = 0;*/
 
         if (strength != null) {
             strength.amount *= 2;
         }
 
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+        /*for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             x += c.costForTurn;
-        }
+        }*/
 
         if (AbstractDungeon.player.getPower(ResochargePower.POWER_ID) != null) {
             baseDamage += AbstractDungeon.player.getPower(ResochargePower.POWER_ID).amount;
@@ -100,7 +100,7 @@ public class Chronobreak extends AbstractDynamicCard {
             baseDamage -= AbstractDungeon.player.getPower(ResochargePower.POWER_ID).amount;
         }
 
-        this.rawDescription = "Heal back to turn start HP. Recover [E] ([#00FFFF]"+x+"[]) used that turn. If you attacked last turn, deal !D! damage. Strength affects this twice. NL ekkotheboywhoshatteredtime:Resonate Exhaust.";
+        this.rawDescription = "Heal back to turn start HP. Recover [E] ([#00FFFF]"+EkkoMod.usedEnergy+"[]) used that turn. If you attacked last turn, deal !D! damage. Strength affects this twice. NL ekkotheboywhoshatteredtime:Resonate Exhaust.";
         this.initializeDescription();
 
         if (strength != null) {
@@ -112,7 +112,7 @@ public class Chronobreak extends AbstractDynamicCard {
     public void calculateCardDamage(AbstractMonster mo)
     {
         AbstractPower strength = AbstractDungeon.player.getPower(StrengthPower.POWER_ID);
-        int x = 0;
+        /*int x = 0;*/
 
         if (strength != null) {
             strength.amount *= 2;
@@ -122,7 +122,7 @@ public class Chronobreak extends AbstractDynamicCard {
             baseDamage += AbstractDungeon.player.getPower(ResochargePower.POWER_ID).amount;
         }
 
-        super.applyPowers();
+        super.calculateCardDamage(mo);
 
         if (AbstractDungeon.player.getPower(ResochargePower.POWER_ID) != null) {
             baseDamage -= AbstractDungeon.player.getPower(ResochargePower.POWER_ID).amount;

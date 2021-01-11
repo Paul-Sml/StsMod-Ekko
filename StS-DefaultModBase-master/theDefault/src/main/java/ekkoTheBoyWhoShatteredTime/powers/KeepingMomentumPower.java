@@ -63,15 +63,21 @@ public class KeepingMomentumPower extends AbstractPower implements CloneablePowe
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK)
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, this.amount), this.amount));
         if (card.type == AbstractCard.CardType.SKILL)
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, this.amount), this.amount));
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (ResonanceCheck == true)
-           this.addToBot(new KeepingMomentumAction(c));
+        if (ResonanceCheck == true) {
+            this.addToBot(new KeepingMomentumAction(c));
+            if (this.amount > 1) {
+                for (int i = 0; i < amount-1; i++) {
+                    this.addToBot(new KeepingMomentumAction(c.makeCopy()));
+                }
+            }
+        }
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 

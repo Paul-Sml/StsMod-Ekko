@@ -18,10 +18,7 @@ import com.megacrit.cardcrawl.powers.watcher.VaultPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
-import ekkoTheBoyWhoShatteredTime.powers.DelayedDamage;
-import ekkoTheBoyWhoShatteredTime.powers.DelayedResonance;
-import ekkoTheBoyWhoShatteredTime.powers.ParallelConvergencePower;
-import ekkoTheBoyWhoShatteredTime.powers.Resonance;
+import ekkoTheBoyWhoShatteredTime.powers.*;
 
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class DuplicateTimelines extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO;
@@ -91,6 +88,10 @@ public class DuplicateTimelines extends AbstractDynamicCard {
             int e = p.getPower(EnergizedPower.POWER_ID).amount;
             p.gainEnergy(e);
         }
+        if (p.hasPower(EnergizedBluePower.POWER_ID)) {
+            int eB = p.getPower(EnergizedBluePower.POWER_ID).amount;
+            p.gainEnergy(eB);
+        }
 
         //Draw
         if (p.hasPower(DrawCardNextTurnPower.POWER_ID)) {
@@ -125,6 +126,12 @@ public class DuplicateTimelines extends AbstractDynamicCard {
         //Gain str
         if (p.hasPower(GainStrengthPower.POWER_ID)) {
             int Gs = p.getPower(GainStrengthPower.POWER_ID).amount;
+            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, Gs), Gs));
+        }
+
+        //Gain str 2
+        if (p.hasPower(GainStrengthPowerBuff.POWER_ID)) {
+            int Gs = p.getPower(GainStrengthPowerBuff.POWER_ID).amount;
             this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, Gs), Gs));
         }
 
@@ -188,6 +195,12 @@ public class DuplicateTimelines extends AbstractDynamicCard {
             //Gain str
             if (q.hasPower(GainStrengthPower.POWER_ID)) {
                 int Gs = q.getPower(GainStrengthPower.POWER_ID).amount;
+                this.addToBot(new ApplyPowerAction(q, p, new StrengthPower(q, Gs), Gs));
+            }
+
+            //Gain str 2
+            if (q.hasPower(GainStrengthPowerBuff.POWER_ID)) {
+                int Gs = q.getPower(GainStrengthPowerBuff.POWER_ID).amount;
                 this.addToBot(new ApplyPowerAction(q, p, new StrengthPower(q, Gs), Gs));
             }
 

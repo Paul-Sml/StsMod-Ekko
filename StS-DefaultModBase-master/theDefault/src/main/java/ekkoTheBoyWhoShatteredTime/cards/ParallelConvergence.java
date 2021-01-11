@@ -2,11 +2,13 @@ package ekkoTheBoyWhoShatteredTime.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 import ekkoTheBoyWhoShatteredTime.powers.ParallelConvergencePower;
 
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class ParallelConvergence extends AbstractDynamicCard {
@@ -22,7 +24,7 @@ public class ParallelConvergence extends AbstractDynamicCard {
     public static final CardColor COLOR = EkkoTheBoyWhoShatteredTime.Enums.COLOR_LIGHTNINGBLUE_EKKO;
 
     private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    //private static final int UPGRADED_COST = 1;
 
     public ParallelConvergence() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -32,15 +34,15 @@ public class ParallelConvergence extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        /*if (this.upgraded) {
+        if (this.upgraded) {
             for (AbstractMonster q : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!q.isDying && !q.isDead) {
-                    this.addToBot(new ApplyPowerAction(q, p, new ParallelConvergencePower(m), 1));
+                    this.addToBot(new ApplyPowerAction(q, p, new ParallelConvergencePower(q), 1));
                 }
             }
-        } else {*/
+        } else {
             this.addToBot(new ApplyPowerAction(m, p, new ParallelConvergencePower(m), 1));
-        /*}*/
+        }
     }
 
     //Upgraded stats.
@@ -48,9 +50,10 @@ public class ParallelConvergence extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            /*this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
-            initializeDescription();*/
+            this.target = CardTarget.ALL_ENEMY;
+//upgradeBaseCost(UPGRADED_COST);
+            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

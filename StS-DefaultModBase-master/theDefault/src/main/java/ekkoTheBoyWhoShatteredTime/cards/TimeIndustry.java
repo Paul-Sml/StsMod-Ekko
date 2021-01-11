@@ -44,7 +44,7 @@ public class TimeIndustry extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
             for (AbstractCard q : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-                if (q.hasTag(EkkoMod.ITEM)) {
+                if (q.hasTag(EkkoMod.ITEM) && !q.purgeOnUse) {
                     AbstractCard tmp = q.makeSameInstanceOf();
                     AbstractDungeon.player.limbo.addToBottom(tmp);
                     tmp.current_x = q.current_x;

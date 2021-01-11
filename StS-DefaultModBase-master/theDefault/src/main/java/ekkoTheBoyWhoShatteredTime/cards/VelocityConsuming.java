@@ -36,9 +36,16 @@ public class VelocityConsuming extends AbstractDynamicCard {
     public VelocityConsuming() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 2;
+        this.baseDamage = 4;
+        this.baseBlock = 3;
         this.magicNumber = this.baseMagicNumber;
     }
 
+    public void applyPowers() {
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+    }
 
     // Actions the card should do.
     @Override
@@ -65,6 +72,8 @@ public class VelocityConsuming extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
+            upgradeDamage(2);
+            upgradeBlock(1);
             this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

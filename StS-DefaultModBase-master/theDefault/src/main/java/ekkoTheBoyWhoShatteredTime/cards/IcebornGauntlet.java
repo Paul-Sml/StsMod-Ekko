@@ -10,7 +10,6 @@ import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
 import ekkoTheBoyWhoShatteredTime.powers.SheenPower;
 
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
 public class IcebornGauntlet extends AbstractDynamicCard {
@@ -46,18 +45,24 @@ public class IcebornGauntlet extends AbstractDynamicCard {
     public IcebornGauntlet() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 4;
+        this.baseDamage = 2;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(EkkoMod.ITEM);
     }
 
+    public void applyPowers() {
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+    }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!this.upgraded)
-            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower( p, 2), 2));
+            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 2), 2));
         if (this.upgraded)
-            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower( p, 3), 3));
+            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 3), 3));
         this.addToBot(new ApplyPowerAction(p, p, new SheenPower(p, p, magicNumber), magicNumber));
     }
 
@@ -67,7 +72,7 @@ public class IcebornGauntlet extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            this.upgradeDamage(1);
             initializeDescription();
         }
     }

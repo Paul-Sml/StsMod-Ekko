@@ -3,7 +3,6 @@ package ekkoTheBoyWhoShatteredTime.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,9 +10,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
+import ekkoTheBoyWhoShatteredTime.actions.PlayTheBeatAction;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
-
-import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
@@ -57,15 +55,9 @@ public class PlayTheBeat extends AbstractDynamicCard {
         if (PDBDexterity < 0)
             this.addToBot(new DamageAction(p, new DamageInfo(p, -PDBDexterity, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (this.upgraded) {
-            ArrayList<AbstractCard> superGroup = new ArrayList<>();
-            for (AbstractCard q : AbstractDungeon.player.hand.group) {
-                if (q.cost > 0) superGroup.add(q);
-            }
-            AbstractCard c = superGroup.get(AbstractDungeon.cardRandomRng.random(superGroup.size()-1));
-            c.setCostForTurn(0);
+            this.addToBot(new PlayTheBeatAction());
         }
     }
-
 
     // Upgraded stats.
     @Override

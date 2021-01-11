@@ -3,7 +3,6 @@ package ekkoTheBoyWhoShatteredTime.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.ShuffleAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,11 +37,11 @@ public class Acceleration extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int x = 0;
+        /*int x = 0;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             x += c.costForTurn;
         }
-        x -= this.costForTurn;
+        x -= this.costForTurn;*/
 
         if (this.upgraded) {
             if (AbstractDungeon.player.discardPile.size() > 0) {
@@ -51,21 +50,21 @@ public class Acceleration extends AbstractDynamicCard {
             }
         }
 
-        this.addToBot(new DrawCardAction(p, x));
+        this.addToBot(new DrawCardAction(p, EkkoMod.usedEnergy));
     }
 
     @Override
     public void applyPowers() {
 
-        int x = 0;
+        /*int x = 0;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             x += c.costForTurn;
-        }
+        }*/
 
         if (!this.upgraded) {
-            this.rawDescription = "Draw a card for each [E] ([#00FFFF]" + x + "[]) spent that turn.";
+            this.rawDescription = "Draw a card for each [E] ([#00FFFF]" + EkkoMod.usedEnergy + "[]) spent that turn.";
         } else {
-            this.rawDescription = "Shuffle your discard pile into your draw pile. Draw a card for each [E] ([#00FFFF]" + x + "[]) spent that turn.";
+            this.rawDescription = "Shuffle your discard pile into your draw pile. Draw a card for each [E] ([#00FFFF]" + EkkoMod.usedEnergy + "[]) spent that turn.";
         }
 
         super.applyPowers();

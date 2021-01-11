@@ -5,9 +5,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import ekkoTheBoyWhoShatteredTime.EkkoMod;
 import ekkoTheBoyWhoShatteredTime.characters.EkkoTheBoyWhoShatteredTime;
+import ekkoTheBoyWhoShatteredTime.powers.GainStrengthPowerBuff;
 
 import static ekkoTheBoyWhoShatteredTime.EkkoMod.makeCardPath;
 
@@ -51,7 +51,7 @@ public class Unchained extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToTop(new ApplyPowerAction(p, p, new GainStrengthPower(p, magicNumber), magicNumber));
+        this.addToTop(new ApplyPowerAction(p, p, new GainStrengthPowerBuff(p, p, magicNumber), magicNumber));
     }
 
     //Upgraded stats.

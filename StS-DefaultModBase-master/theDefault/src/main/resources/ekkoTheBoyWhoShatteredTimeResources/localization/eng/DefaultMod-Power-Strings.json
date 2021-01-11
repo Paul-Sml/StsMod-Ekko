@@ -49,11 +49,7 @@
         },
         "ekkoTheBoyWhoShatteredTime:AcademyAttractionPower": {
                 "NAME": "Academy attraction",
-                "DESCRIPTIONS": ["Fully applying #yResonance gives you 1 #yStrength and #yDexterity."]
-        },
-        "ekkoTheBoyWhoShatteredTime:UpgradedAcademyAttractionPower": {
-                "NAME": "Upgraded academy attraction",
-                "DESCRIPTIONS": ["Fully applying #yResonance gives you 2 #yStrength and #yDexterity."]
+                "DESCRIPTIONS": ["Fully applying #yResonance gives you ", " #yStrength and #yDexterity."]
         },
         "ekkoTheBoyWhoShatteredTime:SktSynergyPower": {
                 "NAME": "SKT synergy",
@@ -78,5 +74,25 @@
         "ekkoTheBoyWhoShatteredTime:KeepingMomentumPower": {
                 "NAME": "Keeping momentum",
                 "DESCRIPTIONS": ["If you fully apply #yResonance put #yKeeping #ymomentum on top of your deck."]
+        },
+        "ekkoTheBoyWhoShatteredTime:FluidEnergyPower": {
+                "NAME": "Fluid energy",
+                "DESCRIPTIONS": ["Gain #b", " Block for each extra [E] that you generate."]
+        },
+        "ekkoTheBoyWhoShatteredTime:CommittedStrikePower": {
+                "NAME": "Committed attack",
+                "DESCRIPTIONS": ["The next time you play a #yStrike this turn, return the card that generated this your hand."]
+        },
+        "ekkoTheBoyWhoShatteredTime:LoseStrengthPowerBuff": {
+                "NAME": "LoseStrengthPowerBuff",
+                "DESCRIPTIONS": ["At the end of this turn, lose #b", " #yStrength. NL If you fully apply #yResonance remove this power."]
+        },
+        "ekkoTheBoyWhoShatteredTime:LoseDexterityPowerBuff": {
+                "NAME": "LoseDexterityPowerBuff",
+                "DESCRIPTIONS": ["At the end of this turn, lose #b", " #yDexterity. NL If you fully apply #yResonance remove this power."]
+        },
+        "ekkoTheBoyWhoShatteredTime:GainStrengthPowerBuff": {
+                "NAME": "GainStrengthPowerBuff",
+                "DESCRIPTIONS": ["At the end of this turn, gain #b", " #yStrength."]
         }
 }

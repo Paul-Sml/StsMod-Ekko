@@ -43,9 +43,9 @@ public class Unleashed extends AbstractDynamicCard {
         if(p.hasPower(DexterityPower.POWER_ID))
             UnleashedPreDexterity = p.getPower(DexterityPower.POWER_ID).amount;
         if (UnleashedPreStrength > 0)
-            this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, UnleashedPreStrength), UnleashedPreStrength));
+            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, UnleashedPreStrength), UnleashedPreStrength));
         if (UnleashedPreDexterity > 0)
-            this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, UnleashedPreDexterity), UnleashedPreDexterity));
+            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, UnleashedPreDexterity), UnleashedPreDexterity));
     }
 
     //Upgraded stats.
